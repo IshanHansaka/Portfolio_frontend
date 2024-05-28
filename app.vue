@@ -42,6 +42,16 @@
       <button type="submit">Create Project</button>
     </form>
   </div>
+
+  <div>
+    <h1>Delete Project</h1>
+    <form @submit.prevent="deleteProject">
+      <div>
+        <label for="name">Project Name : </label>
+        
+      </div>
+    </form>
+  </div>
 </template>
 
 <script setup>
@@ -78,6 +88,8 @@
       console.error("Error:", error);
     }
   }
+
+
 </script>
 
 <style></style>
