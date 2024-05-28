@@ -10,6 +10,7 @@
     <ul>
       <li v-for="project in projects" :key="project.name">
         <h3>{{ project.name }}</h3>
+        <h5>{{ project.p_id }}</h5>
         <p>{{ project.description }}</p>
       </li>
     </ul>
@@ -47,9 +48,10 @@
     <h1>Delete Project</h1>
     <form @submit.prevent="deleteProject">
       <div>
-        <label for="name">Project Name : </label>
-        
+        <label for="p_id">Project ID : </label>
+        <input type="text" id="p_id" required/>
       </div>
+      <button type="submit">Delete</button>
     </form>
   </div>
 </template>
