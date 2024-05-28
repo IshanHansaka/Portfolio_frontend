@@ -42,15 +42,6 @@
       <button type="submit">Create Project</button>
     </form>
   </div>
-
-  <div>
-    <h1>Update Project</h1>
-    <form @submit.prevent="updateProject">
-      <div>
-        <label for="projectid">Project ID : </label>
-      </div>
-    </form>
-  </div>
 </template>
 
 <script setup>
