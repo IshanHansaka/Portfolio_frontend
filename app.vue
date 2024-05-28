@@ -33,13 +33,22 @@
     <form @submit.prevent="createProject"> <!-- prevent refresh after sumbmit -->
       <div>
         <label for="name">Project Name : </label>
-        <input type="text" v-model="newProject.name" id="name" required />
+        <input type="text" v-model="newProject.name" id="name" required/>
       </div>
       <div>
         <label for="description">Project Description : </label>
         <textarea name="description" v-model="newProject.description" id="description"></textarea>
       </div>
       <button type="submit">Create Project</button>
+    </form>
+  </div>
+
+  <div>
+    <h1>Update Project</h1>
+    <form @submit.prevent="updateProject">
+      <div>
+        <label for="projectid">Project ID : </label>
+      </div>
     </form>
   </div>
 </template>
