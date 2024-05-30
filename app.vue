@@ -48,8 +48,8 @@
     <h1>Delete Project</h1>
     <form @submit.prevent="deleteProject">
       <div>
-        <label for="p_id">Project ID : </label>
-        <input type="text" id="p_id" required/>
+        <label for="name">Project Name : </label>
+        <input type="text" v-model="removeProject.name" d="name" required/>
       </div>
       <button type="submit">Delete</button>
     </form>
@@ -84,14 +84,43 @@
       const result = await response.json();
       projects.value.push(result); //push data to front end
 
-      newProject.value.name = "";//clear the form
+      newProject.value.name = ""; //clear the form
       newProject.value.description = "";
     } catch (error) {
       console.error("Error:", error);
     }
   }
 
+  const removeProject = ref({
+    name: "",
+  });
 
+  const deleteProject = async () => {
+    console.log(removeProject.value);
+    try {
+      const response = await fetch("http://localhost:5000/projects", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(removeProject.value),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete project");
+      }
+
+      // Remove the deleted project from the projects array
+      const index = projects.value.findIndex(project => project.name === removeProject.value.name);
+      if (index !== -1) {
+        projects.value.splice(index, 1);
+      }
+
+      removeProject.value.name = ""; // Clear the form
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
 </script>
 
 <style></style>
