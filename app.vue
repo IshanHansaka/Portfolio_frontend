@@ -10,7 +10,6 @@
     <ul>
       <li v-for="project in projects" :key="project.name">
         <h3>{{ project.name }}</h3>
-        <h5>{{ project.p_id }}</h5>
         <p>{{ project.description }}</p>
       </li>
     </ul>
@@ -45,13 +44,31 @@
   </div>
 
   <div>
+    <h1>Update Project</h1>
+    <form @submit.prevent="updateProject">
+      <div>
+        <label for="id">Project ID : </label>
+        <input type="text" v-model="modifyProject.id" id="id" required/>
+      </div>
+      <div>
+        <label for="name">New Project Name : </label>
+        <input type="text" v-model="modifyProject.name" id="name" required/>
+      </div>
+      <div>
+        <label for="description">New Project Description : </label>
+        <textarea name="description" v-model="modifyProject.description" id="description"></textarea>
+      </div>
+      <button type="submit">Update Project</button>
+    </form>
+  </div>
+  <div>
     <h1>Delete Project</h1>
     <form @submit.prevent="deleteProject">
       <div>
-        <label for="name">Project Name : </label>
-        <input type="text" v-model="removeProject.name" id="name" required/>
+        <label for="id">Project ID : </label>
+        <input type="text" v-model="removeProject.id" id="id" required/>
       </div>
-      <button type="submit">Delete</button>
+      <button type="submit">Delete Project</button>
     </form>
   </div>
 </template>
@@ -91,14 +108,49 @@
     }
   }
 
-  const removeProject = ref({
+  const modifyProject = ref({
+    id: "",
     name: "",
+    description: "",
+  });
+
+  const updateProject = async () => {
+    console.log(modifyProject.value);
+    try {
+      const response = await fetch(`http://localhost:5000/projects/${modifyProject.value.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(modifyProject.value),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to update project");
+      }
+
+      // Update the project in the projects array
+      const index = projects.value.findIndex(project => project.id === modifyProject.value.id);
+      if (index !== -1) {
+        projects.value[index] = modifyProject.value;
+      }
+
+      modifyProject.value.id = ""; // Clear the form
+      modifyProject.value.name = "";
+      modifyProject.value.description = "";
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
+  const removeProject = ref({
+    id: "",
   });
 
   const deleteProject = async () => {
     console.log(removeProject.value);
     try {
-      const response = await fetch("http://localhost:5000/projects", {
+      const response = await fetch(`http://localhost:5000/projects/${removeProject.value.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -111,7 +163,7 @@
       }
 
       // Remove the deleted project from the projects array
-      const index = projects.value.findIndex(project => project.name === removeProject.value.name);
+      const index = projects.value.findIndex(project => project.id === removeProject.value.id);
       if (index !== -1) {
         projects.value.splice(index, 1);
       }
