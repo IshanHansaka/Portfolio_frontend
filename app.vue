@@ -179,7 +179,40 @@ const deleteProject = async () => {
 }
 </script>
 <style>
-h1 {
-  color: red;
-}
+  h1 {
+    color: red;
+  }
+  h2 {
+    color: blue;
+  }
+  h3 {
+    color: green;
+  }
+  h4 {
+    color: purple;
+  }
+  p {
+    color: orange;
+  }
+  li {
+    color: brown;
+  }
+  div {
+    color: black;
+  }
+  form {
+    color: black;
+  }
+  input {
+    color: black;
+  }
+  textarea {
+    color: black;
+  }
+  button {
+    color: black;
+  }
+  select {
+    color: black;
+  }
 </style>
