@@ -148,29 +148,28 @@
   });
 
   const deleteProject = async () => {
-    console.log(removeProject.value);
-    try {
-      const response = await fetch(`http://localhost:5000/projects/${removeProject.value.id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(removeProject.value),
-      });
+  console.log(removeProject.value);
+  try {
+    const response = await fetch(`http://localhost:5000/projects/${removeProject.value.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-      if (!response.ok) {
-        throw new Error("Failed to delete project");
-      }
-
-      // Remove the deleted project from the projects array
-      const index = projects.value.findIndex(project => project.id === removeProject.value.id);
-      if (index !== -1) {
-        projects.value.splice(index, 1);
-      }
-
-      removeProject.value.name = ""; // Clear the form
-    } catch (error) {
-      console.error("Error:", error);
+    if (!response.ok) {
+      throw new Error("Failed to delete project");
     }
+
+    const index = projects.value.findIndex(project => project.id === removeProject.value.id);
+    if (index !== -1) {
+      projects.value.splice(index, 1);
+    }
+
+    // Clear the input field
+    removeProject.value.id = "";
+  } catch (error) {
+    console.error("Error:", error);
   }
+}
 </script>
