@@ -178,3 +178,6 @@ const deleteProject = async () => {
   }
 }
 </script>
+<style>
+/*This is the main Vue component for the application.*/
+</style>
