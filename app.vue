@@ -49,7 +49,7 @@
     <form @submit.prevent="deleteProject">
       <div>
         <label for="name">Project Name : </label>
-        <input type="text" v-model="removeProject.name" d="name" required/>
+        <input type="text" v-model="removeProject.name" id="name" required/>
       </div>
       <button type="submit">Delete</button>
     </form>
