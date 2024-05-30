@@ -179,5 +179,7 @@ const deleteProject = async () => {
 }
 </script>
 <style>
-/*This is the main Vue component for the application.*/
+h1 {
+  color: red;
+}
 </style>
