@@ -83,6 +83,16 @@ const newProject = ref({
   description: "",
 });
 
+const modifyProject = ref({
+  id: "",
+  name: "",
+  description: "",
+});
+
+const removeProject = ref({
+  id: "",
+});
+
 const createProject = async () => {
   console.log(newProject.value);
   try {
@@ -107,12 +117,6 @@ const createProject = async () => {
     console.error("Error:", error);
   }
 }
-
-const modifyProject = ref({
-  id: "",
-  name: "",
-  description: "",
-});
 
 const updateProject = async () => {
   console.log(modifyProject.value);
@@ -143,10 +147,6 @@ const updateProject = async () => {
     console.error("Error:", error);
   }
 }
-
-const removeProject = ref({
-  id: "",
-});
 
 const deleteProject = async () => {
   console.log(removeProject.value);
