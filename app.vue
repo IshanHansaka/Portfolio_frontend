@@ -33,7 +33,7 @@
     <form @submit.prevent="createProject"> <!-- prevent refresh after sumbmit -->
       <div>
         <label for="name">Project Name : </label>
-        <input type="text" v-model="newProject.name" id="name" required/>
+        <input type="text" v-model="newProject.name" id="name" required />
       </div>
       <div>
         <label for="description">Project Description : </label>
@@ -48,11 +48,11 @@
     <form @submit.prevent="updateProject">
       <div>
         <label for="id">Project ID : </label>
-        <input type="text" v-model="modifyProject.id" id="id" required/>
+        <input type="text" v-model="modifyProject.id" id="id" required />
       </div>
       <div>
         <label for="name">New Project Name : </label>
-        <input type="text" v-model="modifyProject.name" id="name" required/>
+        <input type="text" v-model="modifyProject.name" id="name" required />
       </div>
       <div>
         <label for="description">New Project Description : </label>
@@ -66,7 +66,7 @@
     <form @submit.prevent="deleteProject">
       <div>
         <label for="id">Project ID : </label>
-        <input type="text" v-model="removeProject.id" id="id" required/>
+        <input type="text" v-model="removeProject.id" id="id" required />
       </div>
       <button type="submit">Delete Project</button>
     </form>
@@ -74,80 +74,81 @@
 </template>
 
 <script setup>
-  const name = "Ishan Hansaka Silva";
-  const { data: projects, pending, error, } = useFetch("http://localhost:5000/projects");
-  const { data: blogs, pending1, error1, } = useFetch("http://localhost:5000/blogs");
+const name = "Ishan Hansaka Silva";
+const { data: projects, pending, error, } = useFetch("http://localhost:5000/projects");
+const { data: blogs, pending1, error1, } = useFetch("http://localhost:5000/blogs");
 
-  const newProject = ref({
-    name: "",
-    description: "",
-  });
+const newProject = ref({
+  name: "",
+  description: "",
+});
 
-  const createProject = async () => {
-    console.log(newProject.value);
-    try {
-      const response = await fetch("http://localhost:5000/projects", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newProject.value),
-      });
+const createProject = async () => {
+  console.log(newProject.value);
+  try {
+    const response = await fetch("http://localhost:5000/projects", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newProject.value),
+    });
 
-      if (!response.ok) {
-        throw new Error("Failed to create project");
-      }
-
-      const result = await response.json();
-      projects.value.push(result); //push data to front end
-
-      newProject.value.name = ""; //clear the form
-      newProject.value.description = "";
-    } catch (error) {
-      console.error("Error:", error);
+    if (!response.ok) {
+      throw new Error("Failed to create project");
     }
+
+    const result = await response.json();
+    projects.value.push(result); //push data to front end
+
+    newProject.value.name = ""; // Clear the input field
+    newProject.value.description = "";
+  } catch (error) {
+    console.error("Error:", error);
   }
+}
 
-  const modifyProject = ref({
-    id: "",
-    name: "",
-    description: "",
-  });
+const modifyProject = ref({
+  id: "",
+  name: "",
+  description: "",
+});
 
-  const updateProject = async () => {
-    console.log(modifyProject.value);
-    try {
-      const response = await fetch(`http://localhost:5000/projects/${modifyProject.value.id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(modifyProject.value),
-      });
+const updateProject = async () => {
+  console.log(modifyProject.value);
+  try {
+    const response = await fetch(`http://localhost:5000/projects/${modifyProject.value.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(modifyProject.value),
+    });
 
-      if (!response.ok) {
-        throw new Error("Failed to update project");
-      }
-
-      // Update the project in the projects array
-      const index = projects.value.findIndex(project => project.id === modifyProject.value.id);
-      if (index !== -1) {
-        projects.value[index] = modifyProject.value;
-      }
-
-      modifyProject.value.id = ""; // Clear the form
-      modifyProject.value.name = "";
-      modifyProject.value.description = "";
-    } catch (error) {
-      console.error("Error:", error);
+    if (!response.ok) {
+      throw new Error("Failed to update project");
     }
+
+
+    const result = await response.json(); // Update the project in the local list
+    const index = projects.value.findIndex((project) => project._id === modifyProject.value.id);
+    if (index !== -1) {
+      projects.value[index] = result;
+    }
+
+    modifyProject.value.id = ""; // Clear the input field
+    modifyProject.value.name = "";
+    modifyProject.value.description = "";
+  } catch (error) {
+    console.error("Error:", error);
   }
+}
 
-  const removeProject = ref({
-    id: "",
-  });
+const removeProject = ref({
+  id: "",
+});
 
-  const deleteProject = async () => {
+const deleteProject = async () => {
   console.log(removeProject.value);
   try {
     const response = await fetch(`http://localhost:5000/projects/${removeProject.value.id}`, {
@@ -161,13 +162,13 @@
       throw new Error("Failed to delete project");
     }
 
-    const index = projects.value.findIndex(project => project.id === removeProject.value.id);
+    const result = await response.json(); // Update the project in the local list
+    const index = projects.value.findIndex((project) => project._id === removeProject.value.id);
     if (index !== -1) {
       projects.value.splice(index, 1);
     }
 
-    // Clear the input field
-    removeProject.value.id = "";
+    removeProject.value.id = ""; // Clear the input field
   } catch (error) {
     console.error("Error:", error);
   }
