@@ -22,7 +22,7 @@
     <ul>
       <li v-for="blog in blogs" :key="blog.title">
         <h3>{{ blog.title }}</h3>
-        <h4>{{ blog.content }}</h4>
+        <p>{{ blog.content }}</p>
         <p>{{ blog.date }}</p>
       </li>
     </ul>
@@ -182,13 +182,17 @@ const deleteProject = async () => {
 body {
   font-family: Arial, sans-serif;
 }
+
 h1 {
   color: green;
-  font-size: 20px;
+}
+
+h2 {
+  color: blue;
 }
 
 ul {
-  list-style-type: none;
+  list-style-type: disc;
 }
 
 li {
@@ -209,17 +213,20 @@ select {
   width: 100%;
   padding: 5px;
   margin-bottom: 10px;
+  font: 1em sans-serif;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #ff9500;
-  color: #fff;
+  padding: 15px 25px;
+  font-size: 15px;
+  background-color: #ff7300;
+  color: #ffffff;
   border: none;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #ffffff;
+  color: #ff7300;
 }
 </style>
