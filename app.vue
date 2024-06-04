@@ -179,5 +179,47 @@ const deleteProject = async () => {
 }
 </script>
 <style>
-/* Add your styles here */
+body {
+  font-family: Arial, sans-serif;
+}
+h1 {
+  color: green;
+  font-size: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ff9500;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
 </style>
