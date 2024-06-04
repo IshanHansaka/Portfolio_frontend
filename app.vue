@@ -181,6 +181,7 @@ const deleteProject = async () => {
 <style>
 body {
   font-family: Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -200,11 +201,35 @@ li {
 }
 
 form {
-  margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+form > div {
+    margin-bottom: 15px;
+    text-align: left;
 }
 
 label {
-  font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #000000;
+}
+
+input[type="text"],
+textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #000000;
 }
 
 input,
@@ -216,17 +241,25 @@ select {
   font: 1em sans-serif;
 }
 
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #007bff;
+}
+
 button {
-  padding: 15px 25px;
+  padding: 10px;
   font-size: 15px;
   background-color: #ff7300;
   color: #ffffff;
   border: none;
   cursor: pointer;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #ffffff;
-  color: #ff7300;
 }
 </style>
