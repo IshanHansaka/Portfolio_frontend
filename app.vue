@@ -258,8 +258,4 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
-button:hover {
-  background-color: #ffffff;
-}
 </style>
