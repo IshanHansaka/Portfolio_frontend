@@ -30,6 +30,11 @@
                                             <Icon name="simple-icons:medium" />
                                         </a>
                                     </li>
+                                    <li class="inline-block mx-2">
+                                        <a href="https://stackoverflow.com/users/22502508/ishan-hansaka-silva">
+                                            <Icon name="mdi:stackoverflow" />
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <ul class="relative z-10 text-center leading-tight text-[2.5rem]">
