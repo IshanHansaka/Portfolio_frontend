@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-    scroll-behavior: smooth;
-}
-
 .right-span {
     @apply absolute top-[2px] left-[2px] w-[8px] h-[8px] border border-black bg-transparent rounded-full z-10 transition-[color,background-color,border-color,text-decoration-color,fill,stroke] duration-[0.2s] ease-[cubic-bezier(0.4,0,0.2,1)]
 }
