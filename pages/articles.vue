@@ -1,6 +1,6 @@
 <template>
-    <section id="home">
-        <p>home</p>
+    <section id="articles">
+        <p>articles</p>
     </section>
 </template>
 
