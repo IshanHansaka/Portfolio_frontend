@@ -1,12 +1,10 @@
 <template>
-    <section id="home">
-        <p>home</p>
+    <section id="section-home" class="min-h-screen bg-blue-100">
+      <h1>Home</h1>
     </section>
-</template>
-
-<style scoped>
-section {
-    height: 100vh;
-    /* Add background color, images, etc. */
-}
-</style>
+  </template>
+  
+  <style scoped>
+  /* Styles specific to Home section */
+  </style>
+  
