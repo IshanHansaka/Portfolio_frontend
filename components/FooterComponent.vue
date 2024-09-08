@@ -1,7 +1,6 @@
 <template>
     <div>
-        <div
-            class="footer fixed bottom-0 left-0 z-20 w-full h-auto">
+        <div class="footer fixed bottom-0 left-0 z-20 w-full h-auto">
             <footer>
                 <div class="footerInner bg-initial py-3">
                     <div class="container-fluid mx-auto px-5">
@@ -12,7 +11,12 @@
                                     <p>All Rights Reserved.</p>
                                 </div>
                             </div>
-                            <div class="footerSocial relative px-7 mr-24">
+                            <ul class="relative z-10 text-center leading-tight text-[2.5rem]">
+                                <li class="inline-block cursor-pointer">
+                                    <LottieAnimation :animationData="chatIconAnimation" style="width: 5rem;" />
+                                </li>
+                            </ul>
+                            <div class="footerSocial relative px-2">
                                 <ul
                                     class="relative z-10 text-center leading-tight text-base sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl">
                                     <li class="inline-block mx-2">
@@ -37,11 +41,6 @@
                                     </li>
                                 </ul>
                             </div>
-                            <ul class="relative z-10 text-center leading-tight text-[2.5rem]">
-                                <li class="inline-block mx-2 cursor-pointer">
-                                    <LottieAnimation :animationData="chatIconAnimation" style="width: 5rem;" />
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
