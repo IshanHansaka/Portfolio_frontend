@@ -1,4 +1,3 @@
-<!-- components/VerticalDotScrollbar.vue -->
 <template>
     <nav class="fixed right-8 top-1/2 transform -translate-y-1/2 z-50">
         <ul class="space-y-2">
@@ -14,7 +13,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 const sections = ['section1', 'section2', 'section3', 'section4', 'section5']; // Replace with your section IDs or classes
 const currentSection = ref(0);
@@ -24,6 +23,18 @@ const navigateToSection = (index) => {
     const section = document.getElementById(sections[index]);
     if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
+    }
+};
+
+const handleKeydown = (event) => {
+    if (event.key === 'ArrowDown') {
+        if (currentSection.value < sections.length - 1) {
+            navigateToSection(currentSection.value + 1);
+        }
+    } else if (event.key === 'ArrowUp') {
+        if (currentSection.value > 0) {
+            navigateToSection(currentSection.value - 1);
+        }
     }
 };
 
@@ -46,9 +57,14 @@ onMounted(() => {
         const el = document.getElementById(sectionId);
         if (el) observer.observe(el);
     });
+
+    window.addEventListener('keydown', handleKeydown);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('keydown', handleKeydown);
 });
 </script>
 
 <style scoped>
-/* You can add more styling for the scrollbar */
 </style>
