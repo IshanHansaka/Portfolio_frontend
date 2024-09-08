@@ -12,7 +12,7 @@
                                     <p>All Rights Reserved.</p>
                                 </div>
                             </div>
-                            <div class="footerSocial relative px-7">
+                            <div class="footerSocial relative px-7 mr-24">
                                 <ul
                                     class="relative z-10 text-center leading-tight text-base sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl">
                                     <li class="inline-block mx-2">
