@@ -15,7 +15,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
-const sections = ['section1', 'section2', 'section3', 'section4', 'section5']; // Replace with your section IDs or classes
+const sections = ['section1', 'section2', 'section3', 'section4', 'section5'];
 const currentSection = ref(0);
 
 const navigateToSection = (index) => {
