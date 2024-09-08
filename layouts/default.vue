@@ -2,22 +2,19 @@
 <template>
     <div class="relative">
         <HeaderComponent />
-        <div id="sections-container" class="overflow-hidden">
+        <div id="sections-container" class="overflow-hidden h-screen">
             <section v-for="section in sections" :id="section.id" :key="section.id" class="h-screen snap-center">
                 <component :is="section.component" />
             </section>
         </div>
         <FooterComponent />
-        <VerticalDotScrollbar :sections="sections" />
+        <VerticalDotScrollbar :sections="sections.map(section => section.id)" />
     </div>
 </template>
 
 <script setup>
-import HeaderComponent from '~/components/HeaderComponent.vue';
-import FooterComponent from '~/components/FooterComponent.vue';
-import VerticalDotScrollbar from '~/components/VerticalDotScrollbar.vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
-// Import your section components
 import HomeSection from '~/components/HomeSection.vue';
 import AboutSection from '~/components/AboutSection.vue';
 import ProjectsSection from '~/components/ProjectsSection.vue';
@@ -31,6 +28,18 @@ const sections = [
     { id: 'section4', component: ArticlesSection },
     { id: 'section5', component: ContactSection },
 ];
+
+const currentSection = ref(0);
+
+const navigateToSection = (index) => {
+    if (index >= 0 && index < sections.length) {
+        currentSection.value = index;
+        const section = document.getElementById(sections[index].id);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+};
 
 let scrollTimeout;
 
@@ -55,14 +64,4 @@ onUnmounted(() => {
 });
 </script>
 
-<style scoped>
-#sections-container {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100vh;
-}
-
-section {
-    scroll-snap-align: start;
-}
-</style>
+<style scoped></style>
