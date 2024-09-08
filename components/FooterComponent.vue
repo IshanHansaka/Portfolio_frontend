@@ -11,9 +11,9 @@
                                     <p>All Rights Reserved.</p>
                                 </div>
                             </div>
-                            <ul class="relative z-10 text-center leading-tight text-[2.5rem]">
+                            <ul class="relative z-10 text-center leading-tight">
                                 <li class="inline-block cursor-pointer">
-                                    <LottieAnimation :animationData="chatIconAnimation" style="width: 5rem;" />
+                                    <LottieAnimation :animationData="chatIconAnimation" style="width: 6rem;" />
                                 </li>
                             </ul>
                             <div class="footerSocial relative px-2">
