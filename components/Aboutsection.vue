@@ -24,7 +24,8 @@
                         stream (2019 - 2022)
                     </li>
                     <li class="mb-2">
-                        <span class="font-semibold">Aluthgama Maha Vidyalaya National School</span> (2008 - 2019)
+                        <span class="font-semibold">Aluthgama Maha Vidyalaya National School</span>
+                        <br>(2008 - 2019)
                     </li>
                 </ul>
             </div>
