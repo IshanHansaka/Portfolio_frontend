@@ -1,6 +1,6 @@
 <template>
-    <div class="mx-auto bg-white shadow-lg rounded-lg overflow-hidden w-[300px] h-[300px]">
-        <div class="h-full flex flex-col justify-between p-8">
+    <div class="mx-auto bg-white shadow-lg rounded-lg overflow-hidden w-[380px] h-[350px]">
+        <div class="h-full flex flex-col justify-between px-4 py-6">
             <div>
                 <h1 class="text-3xl font-bold text-black">{{ project.title }}</h1>
                 <p class="mt-8 text-gray-700 text-base leading-relaxed font-popins">{{ project.description }}</p>
@@ -20,16 +20,9 @@ export default {
         project: {
             type: Object,
             required: true,
-            default: () => ({
-                title: 'Your Project Title',
-                description: 'A brief description of your project goes here.',
-                githubLink: 'https://github.com/your-repo-link'
-            })
         }
     }
 }
 </script>
 
-<style scoped>
-/* Additional styles if needed */
-</style>
+<style scoped></style>
