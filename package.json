@@ -19,7 +19,8 @@
     "nuxt": "^3.13.1",
     "scrollmagic": "^2.0.8",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vue3-carousel": "^0.3.3"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
