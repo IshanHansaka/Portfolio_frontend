@@ -5,9 +5,11 @@
             <div class="text-center mb-5">
                 <h1 class="text-4xl font-bold text-black">Projects</h1>
                 <p class="text-lg text-gray-500 mt-2">Check out some of my latest projects below.</p>
+                <div v-if="pending" class="text-4xl text-black mt-2">Loading projects...</div>
+                <div v-if="error" class="text-4xl text-black mt-2">Ooops! Error 404 projects not found</div>
             </div>
-            <div class="flex overflow-x-auto space-x-4"> <!-- Reduced spacing -->
-                <div class="p-6 flex-shrink-0" v-for="project in projects" :key="project.name"> <!-- Adjusted padding -->
+            <div class="flex overflow-x-auto space-x-4">
+                <div class="p-6 flex-shrink-0" v-for="project in projects" :key="project.name">
                     <ProjectCard :project="{
                         title: project.name,
                         description: project.description,

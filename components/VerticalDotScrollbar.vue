@@ -42,7 +42,7 @@ onMounted(() => {
     const options = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5, // 50% of the section should be visible to consider it active
+        threshold: 0.5,
     };
 
     const observer = new IntersectionObserver((entries) => {

@@ -50,7 +50,6 @@
             </form>
         </div>
 
-        <!-- Popup Message -->
         <div v-if="showPopup" class="fixed inset-0 flex items-center justify-center z-50">
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <p class="text-lg font-semibold">{{ popupMessage }}</p>
@@ -98,8 +97,6 @@ const handleSubmit = () => {
         formError.value = '';
         popupMessage.value = 'Thank you for your message!';
         showPopup.value = true;
-        // Here you would typically handle form submission, e.g., send it to a server
-        // For demonstration purposes, we'll just clear the form
         form.value = {
             firstName: '',
             lastName: '',
@@ -113,6 +110,4 @@ const handleSubmit = () => {
 };
 </script>
 
-<style scoped>
-/* Additional styles if needed */
-</style>
+<style scoped></style>
