@@ -13,7 +13,9 @@
                             </div>
                             <ul class="relative z-10 text-center leading-tight">
                                 <li class="inline-block cursor-pointer">
-                                    <LottieAnimation :animationData="chatIconAnimation" style="width: 6rem;" />
+                                    <button @click="openChatbot">
+                                        <LottieAnimation :animationData="chatIconAnimation" style="width: 6rem;" />
+                                    </button>
                                 </li>
                             </ul>
                             <div class="footerSocial relative px-2">
@@ -53,6 +55,11 @@
 
 import LottieAnimation from '~/components/LottieAnimation.vue';
 import chatIconAnimation from '~/assets/images/chat-icon.json';
+
+const openChatbot = () => {
+    const flaskChatbotUrl = 'http://127.0.0.1:5000';
+    window.location.href = flaskChatbotUrl;
+}
 
 </script>
 
