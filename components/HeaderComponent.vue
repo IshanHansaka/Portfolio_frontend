@@ -14,7 +14,6 @@
                             <div class="headerMenu relative px-7 sm:px-2 md:px-3 xl:px-4 ml-auto">
                                 <i
                                     class="material-icons text-base sm:text-5xl md:text-5xl lg:text-5xl xl:text-5xl cursor-pointer">menu</i>
-
                             </div>
                         </div>
                     </div>

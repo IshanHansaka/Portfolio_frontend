@@ -1,11 +1,8 @@
 <template>
     <div class="min-h-screen px-4 pt-16 md:px-10 md:pt-[50px] pb-[100px] flex flex-col items-center justify-center">
         <div class="flex flex-col md:flex-row justify-center items-start md:items-center gap-5">
-            <!-- Image Section -->
             <img class="w-full md:w-[100rem] max-w-[200px] md:max-w-[400px] object-cover" alt="Coding"
                 src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/Right_Side.gif?raw=true">
-
-            <!-- Text Section -->
             <div class="text-left w-full md:w-[60%]">
                 <h2 class="font-black mb-4 text-3xl md:text-4xl">About Me</h2>
                 <p class="font-popins text-base md:text-xl mb-4 pr-4">
@@ -37,7 +34,6 @@
 </script>
 
 <style scoped>
-/* Ensure responsive design for wider screens */
 @media (min-width: 950px) {
     .text-left {
         text-align: left;
