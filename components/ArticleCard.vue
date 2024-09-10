@@ -1,5 +1,6 @@
 <template>
-    <div class="mx-auto bg-white shadow-lg rounded-lg overflow-hidden w-[300px] h-[350px]">
+    <div
+        class="mx-auto bg-white shadow-xl rounded-lg overflow-hidden w-[300px] h-[350px] transform transition-transform duration-300 ease-in-out hover:scale-105">
         <div class="h-full flex flex-col justify-between px-6 py-4">
             <div>
                 <h1 class="text-2xl font-bold text-black">{{ article.title }}</h1>
@@ -33,4 +34,11 @@ export default {
 </script>
 
 <style scoped>
+.transform {
+    transition: transform 0.38s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.hover\:scale-105:hover {
+    transform: scale(1.035);
+}
 </style>
