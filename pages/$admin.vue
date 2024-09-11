@@ -82,6 +82,10 @@ const name = "Ishan Hansaka Silva";
 const { data: projects, pending, error, } = useFetch("http://localhost:5000/projects");
 const { data: blogs, pending1, error1, } = useFetch("http://localhost:5000/blogs");
 
+definePageMeta({
+  middleware: 'auth',
+});
+
 const newProject = ref({
   name: "",
   description: "",
