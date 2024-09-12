@@ -38,6 +38,23 @@
 
             <!-- Right Column: Forms -->
             <div class="space-y-8 col-span-2">
+                <div class="flex mb-1">
+                    <div class="mx-2">
+                        <label for="entity" class="input-label">Select Entity:</label>
+                        <select v-model="selectedEntity" id="entity" class="w-full p-2 border border-gray-300 rounded">
+                            <option value="project">Project</option>
+                            <option value="blog">Blog</option>
+                        </select>
+                    </div>
+                    <div class="mx-2">
+                        <label for="action" class="input-label">Select Action:</label>
+                        <select v-model="selectedAction" id="action" class="w-full p-2 border border-gray-300 rounded">
+                            <option value="create">Create</option>
+                            <option value="update">Update</option>
+                            <option value="delete">Delete</option>
+                        </select>
+                    </div>
+                </div>
                 <div>
                     <h1 class="admin-title">Create New Project</h1>
                     <form @submit.prevent="createProject" class="admin-form">
