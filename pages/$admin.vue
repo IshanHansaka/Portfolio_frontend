@@ -5,10 +5,10 @@
         </div>
 
         <!-- Two-column layout -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
             <!-- Left Column: Projects and Blogs -->
-            <div>
-                <div class="mb-10">
+            <div class="col-span-3">
+                <div class="mb-10 ">
                     <h2 class="admin-title">Projects</h2>
                     <div v-if="pendingProject" class="admin-pending">Loading projects...</div>
                     <div v-if="errorProject" class="admin-error">Error 404 not found</div>
@@ -37,7 +37,7 @@
             </div>
 
             <!-- Right Column: Forms -->
-            <div class="space-y-8">
+            <div class="space-y-8 col-span-2">
                 <div>
                     <h1 class="admin-title">Create New Project</h1>
                     <form @submit.prevent="createProject" class="admin-form">
