@@ -3,6 +3,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   compatibilityDate: "2024-09-07",
   modules: ['@nuxtjs/tailwindcss', "@nuxt/icon"],
+  runtimeConfig: {
+    public: {},
+    basicAuth: process.env.BASIC_AUTH || '',
+  },
   app: {
     head: {
       title: "Ishan Hansaka Silva",
