@@ -26,43 +26,52 @@
                 <div v-if="activeSection === 'skills'" id="skills">
                     <ul class="list-disc list-inside pl-4">
                         <li class="mb-2">
-                            <span class="about-li">Skill
-                                1</span>
+                            <span class="about-li">
+                                ESP32 Microcontrollers
+                            </span>
                         </li>
                         <li class="mb-2">
-                            <span class="about-li">Skill
-                                2</span>
+                            <span class="about-li">Full-stack Development
+
+                            </span>
                         </li>
                         <li class="mb-2">
-                            <span class="about-li">Skill
-                                3</span>
+                            <span class="about-li">
+                                Event Management
+                            </span>
+                        </li>
+                        <li class="mb-2">
+                            <span class="about-li">
+                                Video Editing
+                            </span>
+                        </li>
+                        <li class="mb-2">
+                            <span class="about-li">
+                                Tecnical Writting
+                            </span>
                         </li>
                     </ul>
                 </div>
                 <div v-if="activeSection === 'experience'" id="experience">
                     <ul class="list-disc list-inside pl-4">
                         <li class="mb-2">
-                            <span
-                                class="about-li">Experience
-                                1</span>
+                            <span class="about-li">Member of the Event Committee</span><br>
+                            IEEE Student Branch University of Moratuwa (2023 Oct - 2024 Oct)
                         </li>
                         <li class="mb-2">
-                            <span
-                                class="about-li">Experience
-                                2</span>
+                            <span class="about-li">Co-Chairperson</span><br>
+                            Mora UXplore 2.0 hosted by IEEE SB UOM (2024 Feb - 2024 Aug)
                         </li>
                         <li class="mb-2">
-                            <span
-                                class="about-li">Experience
-                                3</span>
+                            <span class="about-li">Design and Editorial Committee Member</span><br>
+                            Manusath Handa hosted by Rotaract Club UOM (2023 May - 2024 Apr)
                         </li>
                     </ul>
                 </div>
                 <div v-if="activeSection === 'education'" id="education">
                     <ul class="list-disc list-inside pl-4">
                         <li class="mb-2">
-                            <span
-                                class="about-li">Undergraduate
+                            <span class="about-li">Undergraduate
                                 at University of Moratuwa</span>
                             <br>Bachelor of Science Honours in Information Technology (2023 - 2027)
                         </li>
