@@ -1,6 +1,6 @@
 <template>
     <div
-        class="bg-sea2 min-h-screen bg-center bg-no-repeat bg-cover bg-fixed px-10 pt-[90px] md:pt-[50px] pb-[100px] flex flex-col items-center">
+        class="min-h-screen bg-center bg-no-repeat bg-cover bg-fixed px-10 pt-[90px] md:pt-[50px] pb-[100px] flex flex-col items-center">
         <div class="pt-[50px]">
             <div class="text-center mb-5">
                 <h1 class="text-4xl font-bold text-black">Projects</h1>
