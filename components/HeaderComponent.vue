@@ -6,10 +6,8 @@
                     <div class="headerInner bg-initial pt-3 pb-3 md:pt-4 md:pb-4">
                         <div class="flex flex-wrap items-center -mx-2 md:-mx-3 xl:-mx-4">
                             <div class="headerLogo px-1 sm:px-2 md:px-3 xl:px-4">
-                                <NuxtLink to="/"
-                                    class="font-bold text-base sm:text-3xl md:text-3xl lg:text-3xl xl:text-3xl cursor-pointer">
-                                    Ishan Hansaka Silva
-                                </NuxtLink>
+                                <img src="/name-logo.png" alt=""
+                                    class="w-[15rem]">
                             </div>
                             <div class="headerMenu relative px-7 sm:px-2 md:px-3 xl:px-4 ml-auto">
                                 <i
