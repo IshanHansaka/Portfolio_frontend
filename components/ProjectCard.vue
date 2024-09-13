@@ -1,6 +1,6 @@
 <template>
     <div
-        class="mx-auto bg-white shadow-xl border-2 border-gray-100 rounded-lg overflow-hidden w-[380px] h-[350px] transform transition-transform duration-300 ease-in-out hover:scale-105">
+        class="mx-auto bg-white shadow-xl border-2 border-gray-100 rounded-lg overflow-hidden w-[400px] h-[350px] transform transition-transform duration-300 ease-in-out hover:scale-105">
         <div class="h-full flex flex-col justify-between px-4 py-6">
             <div>
                 <h1 class="text-3xl font-bold text-black">{{ project.title }}</h1>
