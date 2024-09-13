@@ -12,7 +12,7 @@
                 <div v-if="pending" class="text-4xl text-black mt-2">Loading projects...</div>
                 <div v-if="error" class="text-4xl text-black mt-2">Ooops! Error 404 projects not found</div>
             </div>
-            <div class="flex overflow-x-auto space-x-4">
+            <div class="flex overflow-x-auto">
                 <div class="p-6 flex-shrink-0" v-for="project in projects" :key="project.name">
                     <ProjectCard :project="{
                         title: project.name,
