@@ -22,6 +22,11 @@
                                 <ul
                                     class="relative z-10 text-center leading-tight text-base sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl">
                                     <li class="inline-block mx-2">
+                                        <NuxtLink :to="`mailto:ishanhansakasilva@gmail.com`">
+                                            <Icon name="material-symbols:mail-outline-rounded" />
+                                        </NuxtLink>
+                                    </li>
+                                    <li class="inline-block mx-2">
                                         <NuxtLink :to="`https://www.linkedin.com/in/ishanhansakasilva`">
                                             <Icon name="uil:linkedin" />
                                         </NuxtLink>
