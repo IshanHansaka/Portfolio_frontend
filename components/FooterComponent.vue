@@ -22,24 +22,24 @@
                                 <ul
                                     class="relative z-10 text-center leading-tight text-base sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl">
                                     <li class="inline-block mx-2">
-                                        <a href="https://www.linkedin.com/in/ishanhansakasilva">
+                                        <NuxtLink :to="`https://www.linkedin.com/in/ishanhansakasilva`">
                                             <Icon name="uil:linkedin" />
-                                        </a>
+                                        </NuxtLink>
                                     </li>
                                     <li class="inline-block mx-2">
-                                        <a href="https://github.com/IshanHansaka">
+                                        <NuxtLink :to="`https://github.com/IshanHansaka`">
                                             <Icon name="uil:github" />
-                                        </a>
+                                        </NuxtLink>
                                     </li>
                                     <li class="inline-block mx-2">
-                                        <a href="https://medium.com/@ishanhansakasilva">
+                                        <NuxtLink :to="`https://medium.com/@ishanhansakasilva`">
                                             <Icon name="simple-icons:medium" />
-                                        </a>
+                                        </NuxtLink>
                                     </li>
                                     <li class="inline-block mx-2">
-                                        <a href="https://stackoverflow.com/users/22502508/ishan-hansaka-silva">
+                                        <NuxtLink :to="`https://stackoverflow.com/users/22502508/ishan-hansaka-silva`">
                                             <Icon name="mdi:stackoverflow" />
-                                        </a>
+                                        </NuxtLink>
                                     </li>
                                 </ul>
                             </div>
