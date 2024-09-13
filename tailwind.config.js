@@ -16,6 +16,9 @@ module.exports = {
         'sun': 'url("./sun.png")',
         'mountains': 'url("./mountains.png")'
       },
+      fontFamily: {
+        popins: ['Popins', 'sans-serif']
+      },
     },
   },
   plugins: [],
