@@ -2,17 +2,13 @@
     <div>
         <div id="nav" class="navigation fixed top-0 left-0 z-20 h-auto w-full">
             <header>
-                <div class="container-fluid mx-auto px-4 md:px-7">
-                    <div class="headerInner bg-initial pt-3 pb-3 md:pt-4 md:pb-4">
-                        <div class="flex flex-wrap items-center -mx-2 md:-mx-3 xl:-mx-4">
-                            <div class="headerLogo px-1 sm:px-2 md:px-3 xl:px-4">
-                                <img src="/name-logo.png" alt=""
-                                    class="w-[15rem]">
-                            </div>
-                            <div class="headerMenu relative px-7 sm:px-2 md:px-3 xl:px-4 ml-auto">
-                                <i
-                                    class="material-icons text-base sm:text-5xl md:text-5xl lg:text-5xl xl:text-5xl cursor-pointer">menu</i>
-                            </div>
+                <div class="container-fluid mx-auto px-4 sm:px-6 md:px-7 lg:px-8 xl:px-8">
+                    <div class="headerInner py-3 md:py-4 flex items-center justify-between">
+                        <div class="headerLogo flex-shrink-0">
+                            <img src="/name-logo3.png" alt="logo" class="w-48 md:w-48 lg:w-60 xl:w-80">
+                        </div>
+                        <div class="headerMenu relative flex items-center">
+                            <i class="material-icons text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl cursor-pointer">menu</i>
                         </div>
                     </div>
                 </div>
