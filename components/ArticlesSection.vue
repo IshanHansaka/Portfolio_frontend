@@ -19,7 +19,7 @@
                     <!-- Article Items -->
                     <div v-for="(blog, index) in blogs" :key="blog.title"
                         class="absolute w-full transition-transform duration-700 ease-in-out"
-                        :style="{ transform: `translateX(${(currentIndex - index) * 100}%)` }">
+                        :style="{ transform: `translateX(${(currentIndex - index) * -100}%)` }">
                         <ArticleCard :article="{
                             title: blog.title,
                             content: blog.content,

@@ -20,7 +20,7 @@
                     <!-- Project Items -->
                     <div v-for="(project, index) in projects" :key="project.name"
                         class="absolute w-full transition-transform duration-700 ease-in-out"
-                        :style="{ transform: `translateX(${(currentIndex - index) * 100}%)` }">
+                        :style="{ transform: `translateX(${(currentIndex - index) * -100}%)` }">
                         <ProjectCard :project="{
                             title: project.name,
                             description: project.description,
