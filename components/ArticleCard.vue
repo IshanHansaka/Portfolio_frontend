@@ -1,11 +1,11 @@
 <template>
     <div
-        class="mx-auto bg-white shadow-xl rounded-lg overflow-hidden w-[300px] h-[350px] transform transition-transform duration-300 ease-in-out hover:scale-105">
+        class="mx-auto bg-white shadow-xl border-2 border-gray-100 rounded-lg overflow-hidden w-[300px] h-[350px] transform transition-transform duration-300 ease-in-out hover:scale-105">
         <div class="h-full flex flex-col justify-between px-6 py-4">
             <div>
                 <h1 class="text-2xl font-bold text-black">{{ article.title }}</h1>
                 <p class="mt-2 text-sm text-gray-500">{{ formattedDate }}</p>
-                <p class="mt-4 text-md text-gray-700 font-popins">{{ article.content }}</p>
+                <p class="mt-4 text-sm text-gray-700 font-popins">{{ article.content }}</p>
             </div>
             <a :href="article.mediumLink"
                 class="mt-10 px-6 py-2 border-2 border-black bg-black text-white rounded-md hover:bg-white hover:text-black text-center"

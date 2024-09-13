@@ -16,11 +16,11 @@
             </div>
             <div class="flex-glow">
                 <div class="flex gap-5 mb-5">
-                    <p class="font-popins mt-4 mb-1 underline text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl cursor-pointer"
-                        @click="showSection('skills')">Skills</p>
-                    <p class="font-popins mt-4 mb-1 underline text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl cursor-pointer"
+                    <p :class="['about-ul', { 'active': activeSection === 'skills' }]" @click="showSection('skills')">
+                        Skills</p>
+                    <p :class="['about-ul', { 'active': activeSection === 'experience' }]"
                         @click="showSection('experience')">Experience</p>
-                    <p class="font-popins mt-4 mb-1 underline text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl cursor-pointer"
+                    <p :class="['about-ul', { 'active': activeSection === 'education' }]"
                         @click="showSection('education')">Education</p>
                 </div>
                 <div v-if="activeSection === 'skills'" id="skills">
@@ -92,8 +92,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-
 const activeSection = ref('skills');
 
 function showSection(section) {
@@ -101,4 +99,24 @@ function showSection(section) {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.about-ul {
+  @apply font-popins mt-4 mb-1 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl cursor-pointer relative;
+}
+
+.about-ul::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  border-radius: 15px;
+  background: black;
+  transition: width 0.25s ease;
+}
+
+.about-ul.active::after {
+  width: 100%;
+}
+</style>

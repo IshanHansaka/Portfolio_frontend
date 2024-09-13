@@ -3,7 +3,12 @@
         <div class="pt-[30px]">
             <div class="text-center mb-5">
                 <h1 class="text-4xl font-bold text-black">Articles</h1>
-                <p class="text-lg text-gray-500 mt-2">Explore some of my latest articles below.</p>
+                <p class="text-lg text-gray-500 mt-2">Explore some of my latest articles below.
+                    <NuxtLink
+                        :to="`https://medium.com/@ishanhansakasilva`" class="text-blue-500 hover:underline">
+                        view more</NuxtLink>
+                </p>
+                
                 <div v-if="pending" class="text-4xl text-black mt-2">Loading articles...</div>
                 <div v-if="error" class="text-4xl text-black mt-2">Ooops! Error 404 articles not found</div>
             </div>
