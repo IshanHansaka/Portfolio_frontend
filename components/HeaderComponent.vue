@@ -8,11 +8,14 @@
                             <img src="/name-logo3.png" alt="logo" class="w-48 md:w-48 lg:w-60 xl:w-80">
                         </div>
                         <div class="relative flex items-center mt-2 sm:mt-0 custom:flex-row-reverse">
-                            <div
-                                class="material-icons text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl cursor-pointer">
-                                <button @click="openChatbot">
+                            <div class="relative group">
+                                <button @click="openChatbot" class="relative">
                                     <LottieAnimation :animationData="chatIconAnimation" style="width: 5rem;" />
                                 </button>
+                                <div
+                                    class="popup-text absolute right-20 bottom-2 mb-2 px-2 py-1 bg-black text-white text-lg font-popins rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                    Curious about me? 🤔 Let's chat!
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -41,5 +44,9 @@ const openChatbot = () => {
     .custom\:flex-row-reverse {
         flex-direction: row-reverse;
     }
+}
+
+.popup-text {
+    white-space: nowrap;
 }
 </style>
