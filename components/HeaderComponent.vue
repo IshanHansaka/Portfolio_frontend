@@ -10,10 +10,11 @@
                         <div class="relative flex items-center mt-2 sm:mt-0 custom:flex-row-reverse">
                             <div class="relative group">
                                 <button @click="openChatbot" class="relative">
-                                    <LottieAnimation :animationData="chatIconAnimation" style="width: 5rem;" />
+                                    <LottieAnimation :animationData="chatIconAnimation"
+                                        class="w-12 sm:w-12 md:w-14 lg:w-16 xl:w-20" />
                                 </button>
                                 <div
-                                    class="popup-text absolute right-20 bottom-2 mb-2 px-2 py-1 bg-black text-white text-lg font-popins rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                    class="popup-text absolute right-20 bottom-5 mb-2 px-2 py-1 bg-black text-white text-lg font-popins rounded opacity-0 group-hover:opacity-100 transition-opacity">
                                     Curious about me? 🤔 Let's chat!
                                 </div>
                             </div>
