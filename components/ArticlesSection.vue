@@ -1,6 +1,6 @@
 <template>
     <div class="min-h-screen px-16 pt-[90px] md:pt-[50px] pb-[100px] flex justify-center items-center">
-        <div class="pt-[30px] w-full">
+        <div class="w-full">
             <div class="text-center mb-5">
                 <h1 class="text-4xl font-bold text-black">Articles</h1>
                 <p class="text-lg text-gray-500 mt-2">

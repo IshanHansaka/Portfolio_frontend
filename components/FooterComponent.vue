@@ -4,7 +4,7 @@
             <footer>
                 <div class="bg-initial py-3">
                     <div class="container-fluid mx-auto px-5">
-                        <div class="flex flex-wrap items-center justify-between -mx-4">
+                        <div class="flex flex-wrap items-center justify-between">
                             <div class="relative px-4">
                                 <div class="relative z-10 text-left color-gray-500 text-sm sm:text-sm md:text-lg lg:text-lg xl:text-lg">
                                     <p>Copyright © 2024 Ishan</p>

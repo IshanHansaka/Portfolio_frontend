@@ -4,7 +4,7 @@
         <div class="h-full flex flex-col justify-between px-4 py-6">
             <div>
                 <h1 class="text-2xl sm:text-3xl font-bold text-black">{{ project.title }}</h1>
-                <p class="mt-4 sm:mt-8 text-gray-700 text-sm sm:text-base leading-relaxed font-popins">
+                <p class="mt-4 sm:mt-8 text-gray-700 text-sm leading-relaxed font-popins">
                     {{ project.description }}
                 </p>
             </div>
