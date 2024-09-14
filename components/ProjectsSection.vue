@@ -20,7 +20,8 @@
                     <ProjectCard :project="{
                         title: project.name,
                         description: project.description,
-                        githubLink: project.github_link
+                        githubLink: project.github_link,
+                        tools: project.tools
                     }" />
                 </div>
             </div>
