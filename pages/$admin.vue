@@ -6,8 +6,11 @@
 
         <!-- Two-column layout -->
         <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+
             <!-- Left Column: Projects and Blogs -->
             <div class="col-span-3">
+
+                <!-- Projects -->
                 <div class="mb-10 ">
                     <h2 class="admin-title">Projects</h2>
                     <div v-if="pendingProject" class="admin-pending">Loading projects...</div>
@@ -19,11 +22,14 @@
                             <a :href="project.github_link" class="content-link">{{ project.github_link
                                 }}</a>
                             <ul>
-                                <li class="inline-block mr-4" v-for="(tool, index) in project.tools" :key="index">{{ tool }}</li>
+                                <li class="inline-block mr-4" v-for="(tool, index) in project.tools" :key="index">{{
+                                    tool }}</li>
                             </ul>
                         </li>
                     </ul>
                 </div>
+
+                <!-- Blogs -->
                 <div class="mb-10">
                     <h2 class="admin-title">Blogs</h2>
                     <div v-if="pendingBlog" class="admin-pending">Loading blogs...</div>
@@ -60,7 +66,7 @@
                     </div>
                 </div>
 
-                <!-- Create Project Form -->
+                <!-- Create Project -->
                 <div>
                     <h1 class="admin-title">Create New Project</h1>
                     <form @submit.prevent="createProject" class="admin-form">
@@ -90,7 +96,7 @@
                     </form>
                 </div>
 
-                <!-- Update Project Form -->
+                <!-- Update Project -->
                 <div>
                     <h1 class="admin-title">Update Project</h1>
                     <form @submit.prevent="updateProject" class="admin-form">
@@ -128,6 +134,7 @@
                     </form>
                 </div>
 
+                <!-- Delete Project -->
                 <div>
                     <h1 class="admin-title">Delete Project</h1>
                     <form @submit.prevent="deleteProject" class="admin-form">
@@ -143,6 +150,7 @@
                     </form>
                 </div>
 
+                <!-- Create Blog -->
                 <div>
                     <h1 class="text-2xl font-bold mb-4">Create New Blog</h1>
                     <form @submit.prevent="createBlog" class="admin-form">
@@ -168,6 +176,7 @@
                     </form>
                 </div>
 
+                <!-- Update Blog -->
                 <div>
                     <h1 class="admin-title">Update Blog</h1>
                     <form @submit.prevent="updateBlog" class="admin-form">
@@ -199,6 +208,7 @@
                     </form>
                 </div>
 
+                <!-- Delete Blog -->
                 <div>
                     <h1 class="admin-title">Delete Blog</h1>
                     <form @submit.prevent="deleteBlog" class="admin-form">
@@ -212,6 +222,7 @@
                             Blog</button>
                     </form>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -222,11 +233,15 @@
 const { data: projects, pending: pendingProject, error: errorProject } = useFetch("http://localhost:5000/projects");
 const { data: blogs, pending: pendingBlog, error: errorBlog } = useFetch("http://localhost:5000/blogs");
 
+definePageMeta({
+    layout: false
+})
+
 const newProject = ref({
     name: "",
     description: "",
     github_link: "",
-    tools: [""], // Initialize with one empty tool
+    tools: [""],
 });
 
 const modifyProject = ref({
@@ -234,7 +249,7 @@ const modifyProject = ref({
     name: "",
     description: "",
     github_link: "",
-    tools: [], // Will be populated when selecting a project
+    tools: [],
 });
 
 const removeProject = ref({
