@@ -9,6 +9,9 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'en',
+      },
       title: "Ishan Hansaka Silva",
       meta: [{ name: "description", content: "This is the official website of Ishan Hansaka Silva, undergraduate of University of Moratuwa, Sri Lanka." }],
       link: [
