@@ -2,11 +2,11 @@
     <div>
         <div class="footer fixed bottom-0 left-0 z-20 w-full h-auto">
             <footer>
-                <div class="footerInner bg-initial py-3">
+                <div class="bg-initial py-3">
                     <div class="container-fluid mx-auto px-5">
                         <div class="flex flex-wrap items-center justify-between -mx-4">
-                            <div class="footerCredit relative px-4">
-                                <div class="footerCreditTxt relative z-10 text-left color-gray-500">
+                            <div class="relative px-4">
+                                <div class="relative z-10 text-left color-gray-500 text-sm sm:text-sm md:text-lg lg:text-lg xl:text-lg">
                                     <p>Copyright © 2024 Ishan</p>
                                     <p>All Rights Reserved.</p>
                                 </div>
@@ -20,7 +20,7 @@
                             </ul>
                             <div class="footerSocial relative px-2">
                                 <ul
-                                    class="relative z-10 text-center leading-tight text-base sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl">
+                                    class="relative z-10 text-center leading-tight text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl">
                                     <li class="inline-block mx-2">
                                         <NuxtLink :to="`mailto:ishanhansakasilva@gmail.com`">
                                             <Icon name="material-symbols:mail-outline-rounded" />
@@ -56,16 +56,6 @@
     </div>
 </template>
 
-<script setup>
-
-import LottieAnimation from '~/components/LottieAnimation.vue';
-import chatIconAnimation from '~/assets/images/chat-icon.json';
-
-const openChatbot = () => {
-    const flaskChatbotUrl = 'http://127.0.0.1:5000';
-    window.location.href = flaskChatbotUrl;
-}
-
-</script>
+<script setup></script>
 
 <style scoped></style>
