@@ -18,6 +18,9 @@
                             <p class="content-description">{{ project.description }}</p>
                             <a :href="project.github_link" class="content-link">{{ project.github_link
                                 }}</a>
+                            <ul>
+                                <li class="inline-block mr-4" v-for="(tool, index) in project.tools" :key="index">{{ tool }}</li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -38,6 +41,7 @@
 
             <!-- Right Column: Forms -->
             <div class="space-y-8 col-span-2">
+
                 <div class="flex mb-1">
                     <div class="mx-2">
                         <label for="entity" class="input-label">Select Entity:</label>
@@ -55,53 +59,72 @@
                         </select>
                     </div>
                 </div>
+
+                <!-- Create Project Form -->
                 <div>
                     <h1 class="admin-title">Create New Project</h1>
                     <form @submit.prevent="createProject" class="admin-form">
                         <div class="mb-4">
-                            <label for="name" class="input-lable">Project Name :</label>
+                            <label for="name" class="input-label">Project Name :</label>
                             <input type="text" v-model="newProject.name" id="name" required class="input-text" />
                         </div>
                         <div class="mb-4">
-                            <label for="description" class="input-lable">Project Description :</label>
+                            <label for="description" class="input-label">Project Description :</label>
                             <textarea v-model="newProject.description" id="description" class="input-text"></textarea>
                         </div>
                         <div class="mb-4">
-                            <label for="github_link" class="input-lable">Github Repository Link :</label>
-                            <input type="text" v-model="newProject.github_link" id="medium_link" required
+                            <label for="github_link" class="input-label">Github Repository Link :</label>
+                            <input type="text" v-model="newProject.github_link" id="github_link" required
                                 class="input-text" />
                         </div>
-                        <button type="submit" class="btn">Create
-                            Project</button>
+                        <div class="mb-4">
+                            <label for="tools" class="input-label">Tools :</label>
+                            <div v-for="(tool, index) in newProject.tools" :key="index" class="flex items-center mb-2">
+                                <input type="text" v-model="newProject.tools[index]" class="input-text mr-2" />
+                                <button @click.prevent="removeTool(newProject.tools, index)"
+                                    class="btn btn-danger">Remove</button>
+                            </div>
+                            <button @click.prevent="addTool(newProject.tools)" class="btn">Add Tool</button>
+                        </div>
+                        <button type="submit" class="btn">Create Project</button>
                     </form>
                 </div>
 
+                <!-- Update Project Form -->
                 <div>
                     <h1 class="admin-title">Update Project</h1>
                     <form @submit.prevent="updateProject" class="admin-form">
                         <div class="mb-4">
-                            <label for="id" class="input-lable">Project ID :</label>
+                            <label for="id" class="input-label">Project ID :</label>
                             <select v-model="modifyProject.id" id="id" class="input-text">
                                 <option v-for="project in projects" :value="project._id">{{ project.name }}</option>
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label for="name" class="input-lable">New Project Name :</label>
+                            <label for="name" class="input-label">New Project Name :</label>
                             <input type="text" v-model="modifyProject.name" id="name" required class="input-text" />
                         </div>
                         <div class="mb-4">
-                            <label for="description" class="input-lable">New Project Description :</label>
+                            <label for="description" class="input-label">New Project Description :</label>
                             <textarea v-model="modifyProject.description" id="description"
                                 class="input-text"></textarea>
                         </div>
                         <div class="mb-4">
-                            <label for="github_link" class="input-lable">New Github Repository Link
-                                :</label>
-                            <input type="text" v-model="modifyProject.github_link" id="medium_link" required
+                            <label for="github_link" class="input-label">New Github Repository Link :</label>
+                            <input type="text" v-model="modifyProject.github_link" id="github_link" required
                                 class="input-text" />
                         </div>
-                        <button type="submit" class="btn">Update
-                            Project</button>
+                        <div class="mb-4">
+                            <label for="tools" class="input-label">Tools :</label>
+                            <div v-for="(tool, index) in modifyProject.tools" :key="index"
+                                class="flex items-center mb-2">
+                                <input type="text" v-model="modifyProject.tools[index]" class="input-text mr-2" />
+                                <button @click.prevent="removeTool(modifyProject.tools, index)"
+                                    class="btn btn-danger">Remove</button>
+                            </div>
+                            <button @click.prevent="addTool(modifyProject.tools)" class="btn">Add Tool</button>
+                        </div>
+                        <button type="submit" class="btn">Update Project</button>
                     </form>
                 </div>
 
@@ -203,6 +226,7 @@ const newProject = ref({
     name: "",
     description: "",
     github_link: "",
+    tools: [""], // Initialize with one empty tool
 });
 
 const modifyProject = ref({
@@ -210,6 +234,7 @@ const modifyProject = ref({
     name: "",
     description: "",
     github_link: "",
+    tools: [], // Will be populated when selecting a project
 });
 
 const removeProject = ref({
@@ -237,6 +262,7 @@ const createProject = async () => {
         newProject.value.name = ""; // Clear the input field
         newProject.value.description = "";
         newProject.value.github_link = "";
+        newProject.value.tools = [""];
     } catch (error) {
         console.error("Error:", error);
     }
@@ -267,6 +293,7 @@ const updateProject = async () => {
         modifyProject.value.name = "";
         modifyProject.value.description = "";
         modifyProject.value.github_link = "";
+        modifyProject.value.tools = [];
     } catch (error) {
         console.error("Error:", error);
     }
@@ -400,6 +427,18 @@ const deleteBlog = async () => {
         console.error("Error:", error);
     }
 }
+
+const addTool = (toolsArray) => {
+    toolsArray.push("");
+};
+
+const removeTool = (toolsArray, index) => {
+    toolsArray.splice(index, 1);
+};
+
+const populateModifyProject = (project) => {
+    modifyProject.value = { ...project };
+};
 </script>
 <style scoped>
 form>div {
