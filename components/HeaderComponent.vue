@@ -11,10 +11,10 @@
                             <div class="relative group">
                                 <button @click="openChatbot" class="relative">
                                     <LottieAnimation :animationData="chatIconAnimation"
-                                        class="w-12 sm:w-12 md:w-14 lg:w-16 xl:w-20" />
+                                        class="w-10 sm:w-10 md:w-12 lg:w-12 xl:w-16" />
                                 </button>
                                 <div
-                                    class="popup-text absolute right-20 bottom-5 mb-2 px-2 py-1 bg-black text-white text-lg font-popins rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                    class="popup-text absolute right-20 bottom-3 mb-2 px-2 py-1 bg-black text-white text-lg font-popins rounded opacity-0 group-hover:opacity-100 transition-opacity">
                                     Curious about me? 🤔 Let's chat!
                                 </div>
                             </div>

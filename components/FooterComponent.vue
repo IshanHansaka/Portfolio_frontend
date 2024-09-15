@@ -11,13 +11,6 @@
                                     <p>All Rights Reserved.</p>
                                 </div>
                             </div>
-                            <ul class="relative z-10 text-center leading-tight">
-                                <li class="inline-block cursor-pointer">
-                                    <button @click="openChatbot">
-                                        <LottieAnimation :animationData="chatIconAnimation" style="width: 6rem;" />
-                                    </button>
-                                </li>
-                            </ul>
                             <div class="footerSocial relative px-2">
                                 <ul
                                     class="relative z-10 text-center leading-tight text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl">
