@@ -20,6 +20,7 @@
     "keen-slider": "^6.8.6",
     "lottie-web": "^5.12.2",
     "nuxt": "^3.13.1",
+    "sass": "^1.78.0",
     "scrollmagic": "^2.0.8",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
