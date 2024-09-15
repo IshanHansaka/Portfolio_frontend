@@ -1,15 +1,11 @@
 import { defineConfig } from "vitest/config";
-import Vue from "@vitejs/plugin-vue";
-import { resolve } from 'path';
+import vue from "@vitejs/plugin-vue";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-    plugins: [Vue()],
-    test: {
-        globals: true,
-    },
-    resolve: {
-        alias: {
-          '@': resolve(__dirname, './')
-        }
-    },
-})
+  plugins: [vue(), tsconfigPaths()],
+  test: {
+    environment: "jsdom",
+    globals: true,
+  },
+});
