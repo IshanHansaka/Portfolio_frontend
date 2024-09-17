@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-const { data: blogs, pending, error } = useFetch("http://localhost:5000/blogs");
+const { data: blogs, pending, error } = useFetch("https://devlabs-portfolio-backend-06205972995f.herokuapp.com/blogs");
 </script>
 
 <style scoped></style>

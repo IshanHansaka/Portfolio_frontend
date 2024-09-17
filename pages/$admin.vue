@@ -230,7 +230,7 @@
 </template>
 
 <script setup>
-const backendURL = "http://localhost:5000";
+const backendURL = "https://devlabs-portfolio-backend-06205972995f.herokuapp.com";
 
 const { data: projects, pending: pendingProject, error: errorProject } = useFetch(`${backendURL}/projects`);
 const { data: blogs, pending: pendingBlog, error: errorBlog } = useFetch(`${backendURL}/blogs`);

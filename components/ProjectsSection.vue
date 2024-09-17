@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-const { data: projects, pending, error } = useFetch("http://localhost:5000/projects");
+const { data: projects, pending, error } = useFetch("https://devlabs-portfolio-backend-06205972995f.herokuapp.com/projects");
 </script>
 
 <style scoped></style>
