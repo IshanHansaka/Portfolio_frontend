@@ -7,6 +7,13 @@ export default defineNuxtConfig({
       public: {},
       basicAuth: process.env.BASIC_AUTH || '',
     },
+    vite: {
+      resolve: {
+        alias: {
+          '@components': '/components',
+        },
+      },
+    },
     app: {
       head: {
         htmlAttrs: {

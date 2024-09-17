@@ -14,7 +14,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
-import HomeSection from '../components/HomeSection.vue';
+import HomeSection from '@components/HomeSection.vue';
 import AboutSection from '../components/AboutSection.vue';
 import ProjectsSection from '../components/ProjectsSection.vue';
 import ArticlesSection from '../components/ArticlesSection.vue';
