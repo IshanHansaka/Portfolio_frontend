@@ -230,8 +230,10 @@
 </template>
 
 <script setup>
-const { data: projects, pending: pendingProject, error: errorProject } = useFetch("http://localhost:5000/projects");
-const { data: blogs, pending: pendingBlog, error: errorBlog } = useFetch("http://localhost:5000/blogs");
+const backendURL = "http://localhost:5000";
+
+const { data: projects, pending: pendingProject, error: errorProject } = useFetch(`${backendURL}/projects`);
+const { data: blogs, pending: pendingBlog, error: errorBlog } = useFetch(`${backendURL}/blogs`);
 
 definePageMeta({
     layout: false
@@ -259,7 +261,7 @@ const removeProject = ref({
 const createProject = async () => {
     console.log(newProject.value);
     try {
-        const response = await fetch("http://localhost:5000/projects", {
+        const response = await fetch(`${backendURL}/projects`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -286,7 +288,7 @@ const createProject = async () => {
 const updateProject = async () => {
     console.log(modifyProject.value);
     try {
-        const response = await fetch(`http://localhost:5000/projects/${modifyProject.value.id}`, {
+        const response = await fetch(`${backendURL}/projects/${modifyProject.value.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -317,7 +319,7 @@ const updateProject = async () => {
 const deleteProject = async () => {
     console.log(removeProject.value);
     try {
-        const response = await fetch(`http://localhost:5000/projects/${removeProject.value.id}`, {
+        const response = await fetch(`${backendURL}/projects/${removeProject.value.id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -362,7 +364,7 @@ const removeBlog = ref({
 const createBlog = async () => {
     console.log(newBlog.value);
     try {
-        const response = await fetch("http://localhost:5000/blogs", {
+        const response = await fetch(`${backendURL}/blogs`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -389,7 +391,7 @@ const createBlog = async () => {
 const updateBlog = async () => {
     console.log(modifyBlog.value);
     try {
-        const response = await fetch(`http://localhost:5000/blogs/${modifyBlog.value.id}`, {
+        const response = await fetch(`${backendURL}/blogs/${modifyBlog.value.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -420,7 +422,7 @@ const updateBlog = async () => {
 const deleteBlog = async () => {
     console.log(removeBlog.value);
     try {
-        const response = await fetch(`http://localhost:5000/blogs/${removeBlog.value.id}`, {
+        const response = await fetch(`${backendURL}/blogs/${removeBlog.value.id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
