@@ -47,7 +47,7 @@
                         </li>
                         <li class="mb-2">
                             <span class="about-li">
-                                Tecnical Writting
+                                Technical Writing
                             </span>
                         </li>
                     </ul>
