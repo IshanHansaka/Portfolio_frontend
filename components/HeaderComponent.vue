@@ -14,7 +14,7 @@
                                         class="w-10 sm:w-10 md:w-12 lg:w-12 xl:w-16" />
                                 </button>
                                 <div
-                                    class="popup-text absolute right-20 bottom-3 mb-2 px-2 py-1 bg-black text-white text-lg font-popins rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                    class="popup-text absolute right-20 bottom-3 mb-2 px-2 py-1 bg-black text-white text-sm sm:text-base lg:text-lg font-popins rounded opacity-0 group-hover:opacity-100 transition-opacity">
                                     Curious about me? 🤔 Let's chat!
                                 </div>
                             </div>
@@ -49,5 +49,8 @@ const openChatbot = () => {
 
 .popup-text {
     white-space: nowrap;
+    @apply transition-all ease-in-out;
+    @apply text-xs sm:text-sm md:text-base lg:text-lg;
+    @apply px-2 py-1;
 }
 </style>
