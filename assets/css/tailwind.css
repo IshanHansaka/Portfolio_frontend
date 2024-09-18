@@ -61,11 +61,13 @@
 }
 
 .about-ul {
-    @apply font-popins mt-4 mb-1 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl cursor-pointer relative;
+    @apply font-popins mt-4 mb-1 text-sm sm:text-sm md:text-lg lg:text-xl xl:text-2xl cursor-pointer relative;
 }
 
-@layer components {
-    .about-li {
-        @apply font-popins text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg
-    }
+.about-li {
+    @apply font-popins text-sm sm:text-sm md:text-lg lg:text-lg xl:text-lg
+}
+
+.about-li-br {
+    @apply font-popins text-sm sm:text-sm md:text-lg lg:text-lg xl:text-lg text-gray-500;
 }

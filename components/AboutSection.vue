@@ -27,17 +27,17 @@
                     <ul class="list-disc list-inside pl-4">
                         <li class="mb-2">
                             <span class="about-li">
-                                ESP32 Microcontrollers
-                            </span>
-                        </li>
-                        <li class="mb-2">
-                            <span class="about-li">Full-stack Development
-
+                                Full-stack Development
                             </span>
                         </li>
                         <li class="mb-2">
                             <span class="about-li">
-                                Event Management
+                                ESP32 Microcontrollers
+                            </span>
+                        </li>
+                        <li class="mb-2">
+                            <span class="about-li">
+                                Technical Writing
                             </span>
                         </li>
                         <li class="mb-2">
@@ -47,7 +47,7 @@
                         </li>
                         <li class="mb-2">
                             <span class="about-li">
-                                Technical Writing
+                                Event Management
                             </span>
                         </li>
                     </ul>
@@ -56,15 +56,18 @@
                     <ul class="list-disc list-inside pl-4">
                         <li class="mb-2">
                             <span class="about-li">Member of the Event Committee</span><br>
-                            IEEE Student Branch University of Moratuwa (2023 Oct - 2024 Oct)
+                            <span class="about-li-br">IEEE Student Branch University of Moratuwa
+                                <br>(2023 Oct - 2024 Oct)</span>
                         </li>
                         <li class="mb-2">
                             <span class="about-li">Co-Chairperson</span><br>
-                            Mora UXplore 2.0 hosted by IEEE SB UOM (2024 Feb - 2024 Aug)
+                            <span class="about-li-br">Mora UXplore 2.0 hosted by IEEE SB UOM
+                                <br>(2024 Feb - 2024 Aug)</span>
                         </li>
                         <li class="mb-2">
                             <span class="about-li">Design and Editorial Committee Member</span><br>
-                            Manusath Handa hosted by Rotaract Club UOM (2023 May - 2024 Apr)
+                            <span class="about-li-br">Manusath Handa hosted by Rotaract Club UOM
+                                <br>(2023 May - 2024 Apr)</span>
                         </li>
                     </ul>
                 </div>
@@ -73,16 +76,22 @@
                         <li class="mb-2">
                             <span class="about-li">Undergraduate
                                 at University of Moratuwa</span>
-                            <br>Bachelor of Science Honours in Information Technology (2023 - 2027)
+                            <br>
+                            <span class="about-li-br">
+                                Bachelor of Science Honours in Information Technology
+                                <br>(2023 - 2027)
+                            </span>
                         </li>
                         <li class="mb-2">
                             <span class="about-li">Ananda
-                                Shasthralaya National School</span> <br>Physical Science stream (2019 - 2022)
+                                Shasthralaya National School</span><br>
+                            <span class="about-li-br">Physical Science stream
+                                <br>(2019 - 2022)</span>
                         </li>
                         <li class="mb-2">
                             <span class="about-li">Aluthgama
                                 Maha Vidyalaya National School</span>
-                            <br>(2008 - 2019)
+                            <br><span class="about-li-br">(2008 - 2019)</span>
                         </li>
                     </ul>
                 </div>
@@ -101,18 +110,18 @@ function showSection(section) {
 
 <style scoped>
 .about-ul::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 3px;
-  border-radius: 15px;
-  background: black;
-  transition: width 0.25s ease;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    border-radius: 15px;
+    background: black;
+    transition: width 0.25s ease;
 }
 
 .about-ul.active::after {
-  width: 100%;
+    width: 100%;
 }
 </style>
