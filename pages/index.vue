@@ -15,14 +15,12 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 import HomeSection from '@components/HomeSection.vue';
-import AboutSection from '@components/AboutSection.vue';
 import ProjectsSection from '@components/ProjectsSection.vue';
 import ArticlesSection from '@components/ArticlesSection.vue';
 import ContactSection from '@components/ContactSection.vue';
 
 const sections = [
     { id: 'section1', component: HomeSection },
-    { id: 'section2', component: AboutSection },
     { id: 'section3', component: ProjectsSection },
     { id: 'section4', component: ArticlesSection },
     { id: 'section5', component: ContactSection },
