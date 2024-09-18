@@ -69,5 +69,5 @@
 }
 
 .about-li-br {
-    @apply font-popins text-sm sm:text-sm md:text-lg lg:text-lg xl:text-lg text-gray-500;
+    @apply font-popins text-sm sm:text-sm md:text-lg lg:text-lg xl:text-lg text-gray-600;
 }
