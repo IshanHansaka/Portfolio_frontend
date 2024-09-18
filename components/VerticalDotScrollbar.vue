@@ -17,7 +17,10 @@ import { ref, onMounted, onUnmounted } from 'vue';
 
 const sections = ['section1', 'section2', 'section3', 'section4', 'section5'];
 const currentSection = ref(0);
+let isSwiping = false; // Add a flag to prevent multiple swipes during a single gesture
+let swipeTimeout; // Timeout to reset swiping lock after a certain duration
 
+// Navigate to section function
 const navigateToSection = (index) => {
     currentSection.value = index;
     const section = document.getElementById(sections[index]);
@@ -26,15 +29,40 @@ const navigateToSection = (index) => {
     }
 };
 
+// Keyboard event handler
 const handleKeydown = (event) => {
-    if (event.key === 'ArrowDown') {
-        if (currentSection.value < sections.length - 1) {
-            navigateToSection(currentSection.value + 1);
+    if (event.key === 'ArrowDown' && currentSection.value < sections.length - 1) {
+        navigateToSection(currentSection.value + 1);
+    } else if (event.key === 'ArrowUp' && currentSection.value > 0) {
+        navigateToSection(currentSection.value - 1);
+    }
+};
+
+// Touch event handling for mobile
+let startY = 0;
+const handleTouchStart = (event) => {
+    startY = event.touches[0].clientY;
+};
+
+const handleTouchMove = (event) => {
+    if (isSwiping) return; // Ignore if already swiping
+
+    const currentY = event.touches[0].clientY;
+    const deltaY = startY - currentY;
+
+    if (Math.abs(deltaY) > 50) { // Threshold for swipe sensitivity
+        if (deltaY > 0 && currentSection.value < sections.length - 1) {
+            navigateToSection(currentSection.value + 1); // Swipe up
+        } else if (deltaY < 0 && currentSection.value > 0) {
+            navigateToSection(currentSection.value - 1); // Swipe down
         }
-    } else if (event.key === 'ArrowUp') {
-        if (currentSection.value > 0) {
-            navigateToSection(currentSection.value - 1);
-        }
+        isSwiping = true; // Lock swiping during one swipe
+
+        // Reset the swiping lock after a short delay (e.g., 500ms)
+        clearTimeout(swipeTimeout);
+        swipeTimeout = setTimeout(() => {
+            isSwiping = false;
+        }, 500);
     }
 };
 
@@ -59,10 +87,14 @@ onMounted(() => {
     });
 
     window.addEventListener('keydown', handleKeydown);
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchmove', handleTouchMove);
 });
 
 onUnmounted(() => {
     window.removeEventListener('keydown', handleKeydown);
+    window.removeEventListener('touchstart', handleTouchStart);
+    window.removeEventListener('touchmove', handleTouchMove);
 });
 </script>
 
