@@ -6,10 +6,8 @@
 </template>
 
 <script setup>
-import { onMounted, nextTick } from 'vue'
-import LottieAnimation from '@components/LottieAnimation.vue'
-import preloader from './public/preloader.json'
-import gsap from 'gsap'
+import { onMounted, nextTick } from 'vue';
+import gsap from 'gsap';
 
 onMounted(() => {
     nextTick(() => {
@@ -33,7 +31,7 @@ onMounted(() => {
                         })
                     }
                 })
-            }, 3000)
+            }, 2000)
         }, 0)
     })
 })
