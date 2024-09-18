@@ -16,25 +16,26 @@ onMounted(() => {
             gsap.to('.preloader-animation', {
                 opacity: 1,
                 duration: 0.5
-            })
+            });
             gsap.set('body', {
                 overflow: 'hidden'
-            })
+            });
             setTimeout(() => {
                 gsap.to('.preloader', {
-                    clipPath: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)',
-                    duration: 0.7,
-                    opacity: 0,
+                    y: '-100%', // Slide out of view
+                    opacity: 0, // Fade out
+                    duration: 0.7, // Duration for the transition
+                    ease: 'power2.out', // Smooth easing
                     onComplete() {
                         gsap.set('body', {
                             clearProps: 'all'
-                        })
+                        });
                     }
-                })
-            }, 2000)
-        }, 0)
-    })
-})
+                });
+            }, 1500);
+        }, 0);
+    });
+});
 </script>
 
 <style scoped>
@@ -47,13 +48,13 @@ onMounted(() => {
         linear-gradient(0deg, rgba(255, 255, 255, 0.5) 30%, rgba(255, 255, 255, 0) 0 70%, rgba(255, 255, 255, 1) 0) 50%/8% 100%,
         linear-gradient(90deg, rgba(255, 255, 255, 0.25) 30%, rgba(255, 255, 255, 0) 0 70%, rgba(255, 255, 255, 0.75) 0) 50%/100% 8%;
     background-repeat: no-repeat;
-    animation: l23 1s infinite steps(12);
+    animation: rotateLoader 1s infinite steps(12);
 }
 
 .loader::before,
 .loader::after {
     content: "";
-    grid-area: 1/1;
+    grid-area: 1 / 1;
     border-radius: 50%;
     background: inherit;
     opacity: 0.915;
@@ -65,9 +66,9 @@ onMounted(() => {
     transform: rotate(60deg);
 }
 
-@keyframes l23 {
+@keyframes rotateLoader {
     100% {
-        transform: rotate(1turn)
+        transform: rotate(1turn);
     }
 }
 
@@ -81,6 +82,7 @@ onMounted(() => {
     flex-direction: column;
     overflow: hidden;
     background: rgba(0, 0, 0);
+    transition: opacity 0.7s ease-out;
 }
 
 .preloader-animation {
