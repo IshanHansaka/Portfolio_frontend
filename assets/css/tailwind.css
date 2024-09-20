@@ -71,3 +71,7 @@
 .about-li-br {
     @apply font-popins text-sm sm:text-sm md:text-lg lg:text-lg xl:text-lg text-gray-600;
 }
+
+.about-li-p {
+    @apply block sm:block md:inline xl:inline
+}
