@@ -68,163 +68,170 @@
                     </div>
                 </div>
 
-                <!-- Create Project -->
-                <div>
-                    <h1 class="admin-title">Create New Project</h1>
-                    <form @submit.prevent="createProject" class="admin-form">
-                        <div class="mb-4">
-                            <label for="name" class="input-label">Project Name :</label>
-                            <input type="text" v-model="newProject.name" id="name" required class="input-text" />
-                        </div>
-                        <div class="mb-4">
-                            <label for="description" class="input-label">Project Description :</label>
-                            <textarea v-model="newProject.description" id="description" class="input-text"></textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="github_link" class="input-label">Github Repository Link :</label>
-                            <input type="text" v-model="newProject.github_link" id="github_link" required
-                                class="input-text" />
-                        </div>
-                        <div class="mb-4">
-                            <label for="tools" class="input-label">Tools :</label>
-                            <div v-for="(tool, index) in newProject.tools" :key="index" class="flex items-center mb-2">
-                                <input type="text" v-model="newProject.tools[index]" class="input-text mr-2" />
-                                <button @click.prevent="removeTool(newProject.tools, index)"
-                                    class="btn btn-danger">Remove</button>
+                <div v-if="selectedEntity === 'project'">
+                    <!-- Create Project -->
+                    <div v-if="selectedAction === 'create'">
+                        <h1 class="admin-title">Create New Project</h1>
+                        <form @submit.prevent="createProject" class="admin-form">
+                            <div class="mb-4">
+                                <label for="name" class="input-label">Project Name :</label>
+                                <input type="text" v-model="newProject.name" id="name" required class="input-text" />
                             </div>
-                            <button @click.prevent="addTool(newProject.tools)" class="btn">Add Tool</button>
-                        </div>
-                        <button type="submit" class="btn">Create Project</button>
-                    </form>
-                </div>
-
-                <!-- Update Project -->
-                <div>
-                    <h1 class="admin-title">Update Project</h1>
-                    <form @submit.prevent="updateProject" class="admin-form">
-                        <div class="mb-4">
-                            <label for="id" class="input-label">Project ID :</label>
-                            <select v-model="modifyProject.id" id="id" class="input-text">
-                                <option v-for="project in projects" :value="project._id">{{ project.name }}
-                                </option>
-                            </select>
-                        </div>
-                        <div class="mb-4">
-                            <label for="name" class="input-label">New Project Name :</label>
-                            <input type="text" v-model="modifyProject.name" id="name" required class="input-text" />
-                        </div>
-                        <div class="mb-4">
-                            <label for="description" class="input-label">New Project Description :</label>
-                            <textarea v-model="modifyProject.description" id="description"
-                                class="input-text"></textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="github_link" class="input-label">New Github Repository Link :</label>
-                            <input type="text" v-model="modifyProject.github_link" id="github_link" required
-                                class="input-text" />
-                        </div>
-                        <div class="mb-4">
-                            <label for="tools" class="input-label">Tools :</label>
-                            <div v-for="(tool, index) in modifyProject.tools" :key="index"
-                                class="flex items-center mb-2">
-                                <input type="text" v-model="modifyProject.tools[index]" class="input-text mr-2" />
-                                <button @click.prevent="removeTool(modifyProject.tools, index)"
-                                    class="btn btn-danger">Remove</button>
+                            <div class="mb-4">
+                                <label for="description" class="input-label">Project Description :</label>
+                                <textarea v-model="newProject.description" id="description"
+                                    class="input-text"></textarea>
                             </div>
-                            <button @click.prevent="addTool(modifyProject.tools)" class="btn">Add Tool</button>
-                        </div>
-                        <button type="submit" class="btn">Update Project</button>
-                    </form>
+                            <div class="mb-4">
+                                <label for="github_link" class="input-label">Github Repository Link :</label>
+                                <input type="text" v-model="newProject.github_link" id="github_link" required
+                                    class="input-text" />
+                            </div>
+                            <div class="mb-4">
+                                <label for="tools" class="input-label">Tools :</label>
+                                <div v-for="(tool, index) in newProject.tools" :key="index"
+                                    class="flex items-center mb-2">
+                                    <input type="text" v-model="newProject.tools[index]" class="input-text mr-2" />
+                                    <button @click.prevent="removeTool(newProject.tools, index)"
+                                        class="btn btn-danger">Remove</button>
+                                </div>
+                                <button @click.prevent="addTool(newProject.tools)" class="btn">Add Tool</button>
+                            </div>
+                            <button type="submit" class="btn">Create Project</button>
+                        </form>
+                    </div>
+
+                    <!-- Update Project -->
+                    <div v-if="selectedAction === 'update'">
+                        <h1 class="admin-title">Update Project</h1>
+                        <form @submit.prevent="updateProject" class="admin-form">
+                            <div class="mb-4">
+                                <label for="id" class="input-label">Project ID :</label>
+                                <select v-model="modifyProject.id" id="id" class="input-text">
+                                    <option v-for="project in projects" :value="project._id">{{ project.name }}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="name" class="input-label">New Project Name :</label>
+                                <input type="text" v-model="modifyProject.name" id="name" required class="input-text" />
+                            </div>
+                            <div class="mb-4">
+                                <label for="description" class="input-label">New Project Description :</label>
+                                <textarea v-model="modifyProject.description" id="description"
+                                    class="input-text"></textarea>
+                            </div>
+                            <div class="mb-4">
+                                <label for="github_link" class="input-label">New Github Repository Link :</label>
+                                <input type="text" v-model="modifyProject.github_link" id="github_link" required
+                                    class="input-text" />
+                            </div>
+                            <div class="mb-4">
+                                <label for="tools" class="input-label">Tools :</label>
+                                <div v-for="(tool, index) in modifyProject.tools" :key="index"
+                                    class="flex items-center mb-2">
+                                    <input type="text" v-model="modifyProject.tools[index]" class="input-text mr-2" />
+                                    <button @click.prevent="removeTool(modifyProject.tools, index)"
+                                        class="btn btn-danger">Remove</button>
+                                </div>
+                                <button @click.prevent="addTool(modifyProject.tools)" class="btn">Add Tool</button>
+                            </div>
+                            <button type="submit" class="btn">Update Project</button>
+                        </form>
+                    </div>
+
+                    <!-- Delete Project -->
+                    <div v-if="selectedAction === 'delete'">
+                        <h1 class="admin-title">Delete Project</h1>
+                        <form @submit.prevent="deleteProject" class="admin-form">
+                            <div class="mb-4">
+                                <label for="id" class="input-lable">Project ID :</label>
+                                <select v-model="removeProject.id" id="id"
+                                    class="w-full p-2 border border-gray-300 rounded">
+                                    <option v-for="project in projects" :value="project._id">{{ project.name }}
+                                    </option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn">Delete
+                                Project</button>
+                        </form>
+                    </div>
                 </div>
 
-                <!-- Delete Project -->
-                <div>
-                    <h1 class="admin-title">Delete Project</h1>
-                    <form @submit.prevent="deleteProject" class="admin-form">
-                        <div class="mb-4">
-                            <label for="id" class="input-lable">Project ID :</label>
-                            <select v-model="removeProject.id" id="id"
-                                class="w-full p-2 border border-gray-300 rounded">
-                                <option v-for="project in projects" :value="project._id">{{ project.name }}
-                                </option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn">Delete
-                            Project</button>
-                    </form>
-                </div>
+                <div v-if="selectedEntity === 'blog'">
+                    <!-- Create Blog -->
+                    <div v-if="selectedAction === 'create'">
+                        <h1 class="text-2xl font-bold mb-4">Create New Blog</h1>
+                        <form @submit.prevent="createBlog" class="admin-form">
+                            <div class="mb-4">
+                                <label for="title" class="input-lable">Blog Title :</label>
+                                <input type="text" v-model="newBlog.title" id="title" required class="input-text" />
+                            </div>
+                            <div class="mb-4">
+                                <label for="content" class="input-lable">Blog Content :</label>
+                                <textarea v-model="newBlog.content" id="content" class="input-text"></textarea>
+                            </div>
+                            <div class="mb-4">
+                                <label for="date" class="input-lable">Blog Date :</label>
+                                <input type="date" v-model="newBlog.date" id="date" required class="input-text" />
+                            </div>
+                            <div class="mb-4">
+                                <label for="medium_link" class="input-lable">Medium Link :</label>
+                                <input type="text" v-model="newBlog.medium_link" id="medium_link" required
+                                    class="input-text" />
+                            </div>
+                            <button type="submit" class="btn">Create
+                                Blog</button>
+                        </form>
+                    </div>
 
-                <!-- Create Blog -->
-                <div>
-                    <h1 class="text-2xl font-bold mb-4">Create New Blog</h1>
-                    <form @submit.prevent="createBlog" class="admin-form">
-                        <div class="mb-4">
-                            <label for="title" class="input-lable">Blog Title :</label>
-                            <input type="text" v-model="newBlog.title" id="title" required class="input-text" />
-                        </div>
-                        <div class="mb-4">
-                            <label for="content" class="input-lable">Blog Content :</label>
-                            <textarea v-model="newBlog.content" id="content" class="input-text"></textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="date" class="input-lable">Blog Date :</label>
-                            <input type="date" v-model="newBlog.date" id="date" required class="input-text" />
-                        </div>
-                        <div class="mb-4">
-                            <label for="medium_link" class="input-lable">Medium Link :</label>
-                            <input type="text" v-model="newBlog.medium_link" id="medium_link" required
-                                class="input-text" />
-                        </div>
-                        <button type="submit" class="btn">Create
-                            Blog</button>
-                    </form>
-                </div>
+                    <!-- Update Blog -->
+                    <div v-if="selectedAction === 'update'">
+                        <h1 class="admin-title">Update Blog</h1>
+                        <form @submit.prevent="updateBlog" class="admin-form">
+                            <div class="mb-4">
+                                <label for="id" class="input-lable">Blog ID :</label>
+                                <select v-model="modifyBlog.id" id="id" class="input-text">
+                                    <option v-for="blog in blogs" :value="blog._id">{{ blog.title }}</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="title" class="input-lable">New Blog Title :</label>
+                                <input type="text" v-model="modifyBlog.title" id="title" required class="input-text" />
+                            </div>
+                            <div class="mb-4">
+                                <label for="content" class="input-lable">New Blog Content :</label>
+                                <textarea v-model="modifyBlog.content" id="content" class="input-text"></textarea>
+                            </div>
+                            <div class="mb-4">
+                                <label for="date" class="input-lable">New Blog Date :</label>
+                                <input type="date" v-model="modifyBlog.date" id="date" required class="input-text" />
+                            </div>
+                            <div class="mb-4">
+                                <label for="medium_link" class="input-lable">New Medium Link :</label>
+                                <input type="text" v-model="modifyBlog.medium_link" id="medium_link" required
+                                    class="input-text" />
+                            </div>
+                            <button type="submit" class="btn">Update
+                                Blog</button>
+                        </form>
+                    </div>
 
-                <!-- Update Blog -->
-                <div>
-                    <h1 class="admin-title">Update Blog</h1>
-                    <form @submit.prevent="updateBlog" class="admin-form">
-                        <div class="mb-4">
-                            <label for="id" class="input-lable">Blog ID :</label>
-                            <select v-model="modifyBlog.id" id="id" class="input-text">
-                                <option v-for="blog in blogs" :value="blog._id">{{ blog.title }}</option>
-                            </select>
-                        </div>
-                        <div class="mb-4">
-                            <label for="title" class="input-lable">New Blog Title :</label>
-                            <input type="text" v-model="modifyBlog.title" id="title" required class="input-text" />
-                        </div>
-                        <div class="mb-4">
-                            <label for="content" class="input-lable">New Blog Content :</label>
-                            <textarea v-model="modifyBlog.content" id="content" class="input-text"></textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="date" class="input-lable">New Blog Date :</label>
-                            <input type="date" v-model="modifyBlog.date" id="date" required class="input-text" />
-                        </div>
-                        <div class="mb-4">
-                            <label for="medium_link" class="input-lable">New Medium Link :</label>
-                            <input type="text" v-model="modifyBlog.medium_link" id="medium_link" required
-                                class="input-text" />
-                        </div>
-                        <button type="submit" class="btn">Update
-                            Blog</button>
-                    </form>
-                </div>
-
-                <!-- Delete Blog -->
-                <div>
-                    <h1 class="admin-title">Delete Blog</h1>
-                    <form @submit.prevent="deleteBlog" class="admin-form">
-                        <div class="mb-4">
-                            <label for="id" class="input-lable">Blog ID :</label>
-                            <select v-model="removeBlog.id" id="id" class="w-full p-2 border border-gray-300 rounded">
-                                <option v-for="blog in blogs" :value="blog._id">{{ blog.title }}</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn">Delete
-                            Blog</button>
-                    </form>
+                    <!-- Delete Blog -->
+                    <div v-if="selectedAction === 'delete'">
+                        <h1 class="admin-title">Delete Blog</h1>
+                        <form @submit.prevent="deleteBlog" class="admin-form">
+                            <div class="mb-4">
+                                <label for="id" class="input-lable">Blog ID :</label>
+                                <select v-model="removeBlog.id" id="id"
+                                    class="w-full p-2 border border-gray-300 rounded">
+                                    <option v-for="blog in blogs" :value="blog._id">{{ blog.title }}</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn">Delete
+                                Blog</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -234,9 +241,12 @@
 <script setup>
 import { ref } from 'vue';
 
+const selectedEntity = ref('project');
+const selectedAction = ref('create');
+
 const handleLogout = () => {
-  localStorage.removeItem('portfolioAdmin');
-  window.location.reload();
+    localStorage.removeItem('portfolioAdmin');
+    window.location.reload();
 };
 
 const backendURL = "https://devlabs-portfolio-backend-06205972995f.herokuapp.com";
