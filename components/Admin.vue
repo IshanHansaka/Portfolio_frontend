@@ -63,7 +63,7 @@
                             <option value="delete">Delete</option>
                         </select>
                     </div>
-                    <div class="flex items-center mx-2">
+                    <div class="flex items-end mx-2">
                         <button @click="handleLogout" class="btn">Logout</button>
                     </div>
                 </div>
