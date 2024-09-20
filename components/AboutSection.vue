@@ -57,17 +57,20 @@
                         <li class="mb-2">
                             <span class="about-li">Member of the Event Committee</span><br>
                             <span class="about-li-br">IEEE Student Branch University of Moratuwa
-                                <br>(2023 Oct - 2024 Oct)</span>
+                                <p class="about-li-p">(2023 Oct - 2024 Oct)</p>
+                            </span>
                         </li>
                         <li class="mb-2">
                             <span class="about-li">Co-Chairperson</span><br>
                             <span class="about-li-br">Mora UXplore 2.0 hosted by IEEE SB UOM
-                                <br>(2024 Feb - 2024 Aug)</span>
+                                <p class="about-li-p">(2024 Feb - 2024 Aug)</p>
+                            </span>
                         </li>
                         <li class="mb-2">
                             <span class="about-li">Design and Editorial Committee Member</span><br>
                             <span class="about-li-br">Manusath Handa hosted by Rotaract Club UOM
-                                <br>(2023 May - 2024 Apr)</span>
+                                <p class="about-li-p">(2023 May - 2024 Apr)</p>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -79,14 +82,15 @@
                             <br>
                             <span class="about-li-br">
                                 Bachelor of Science Honours in Information Technology
-                                <br>(2023 - 2027)
+                                <p class="about-li-p">(2023 - 2027)</p>
                             </span>
                         </li>
                         <li class="mb-2">
                             <span class="about-li">Ananda
                                 Shasthralaya National School</span><br>
                             <span class="about-li-br">Physical Science stream
-                                <br>(2019 - 2022)</span>
+                                <p class="about-li-p">(2019 - 2022)</p>
+                            </span>
                         </li>
                         <li class="mb-2">
                             <span class="about-li">Aluthgama
