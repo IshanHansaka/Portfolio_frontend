@@ -13,7 +13,7 @@ onMounted(() => {
     nextTick(() => {
         setTimeout(async () => {
             await document.fonts.load
-            gsap.to('.preloader-animation', {
+            gsap.to('.loader', {
                 opacity: 1,
                 duration: 0.5
             });
@@ -22,10 +22,10 @@ onMounted(() => {
             });
             setTimeout(() => {
                 gsap.to('.preloader', {
-                    y: '-100%', // Slide out of view
-                    opacity: 0, // Fade out
-                    duration: 0.7, // Duration for the transition
-                    ease: 'power2.out', // Smooth easing
+                    y: '-100%',
+                    opacity: 0,
+                    duration: 0.7,
+                    ease: 'power2.out',
                     onComplete() {
                         gsap.set('body', {
                             clearProps: 'all'

@@ -30,10 +30,10 @@
                     </div>
                     <div>
                         <label for="phone" class="block text-gray-700 font-medium text">Phone Number</label>
-                        <input v-model="form.phone" id="phone" type="tel" placeholder="+94773124593"
+                        <input v-model="form.phoneNumber" id="phone" type="tel" placeholder="+94773124593"
                             class="w-full border-2 border-gray-300 rounded-md shadow-sm p-1 text"
                             :class="{ 'border-red-500': errors.phone }" />
-                        <p v-if="errors.phone" class="text-red-500 text-sm mt-1">{{ errors.phone }}</p>
+                        <p v-if="errors.phoneNumber" class="text-red-500 text-sm mt-1">{{ errors.phoneNumber }}</p>
                     </div>
                 </div>
                 <div>
@@ -42,6 +42,8 @@
                         class="w-full border-2 border-gray-300 rounded-md shadow-sm p-1 text"
                         :class="{ 'border-red-500': errors.message }" rows="4"></textarea>
                     <p v-if="errors.message" class="text-red-500 text-sm mt-1">{{ errors.message }}</p>
+                    <p v-if="success" class="text-blue-500 text-sm mt-1" aria-live="assertive">{{ success }}</p>
+                    <p v-if="fail" class="text-red-500 text-sm mt-1" aria-live="assertive">{{ fail }}</p>
                 </div>
                 <div class="text-center">
                     <button type="submit"
@@ -49,23 +51,19 @@
                 </div>
             </form>
         </div>
-
-        <div v-if="showPopup" class="fixed inset-0 flex items-center justify-center z-50">
-            <div class="bg-white p-6 rounded-lg shadow-lg">
-                <p class="text-lg font-semibold">{{ popupMessage }}</p>
-            </div>
-        </div>
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 
+const backendURL = "https://devlabs-portfolio-backend-06205972995f.herokuapp.com";
+
 const form = ref({
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',
+    phoneNumber: '',
     message: ''
 });
 
@@ -73,37 +71,61 @@ const errors = ref({
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',
+    phoneNumber: '',
     message: ''
 });
 
+const success = ref("");
+const fail = ref("");
+
 const formError = ref('');
-const showPopup = ref(false);
-const popupMessage = ref('');
 
 const validateForm = () => {
     errors.value = {
         firstName: form.value.firstName ? '' : 'First name is required',
         lastName: form.value.lastName ? '' : 'Last name is required',
         email: form.value.email && /\S+@\S+\.\S+/.test(form.value.email) ? '' : 'Valid email is required',
-        phone: form.value.phone && /^\+94\d{9}$/.test(form.value.phone) ? '' : 'Phone number must be in the format +94-77-456-7890',
+        phoneNumber: form.value.phoneNumber && /^\+94\d{9}$/.test(form.value.phoneNumber) ? '' : 'Valid phone number is required',
         message: form.value.message ? '' : 'Message is required'
     };
     return !Object.values(errors.value).some(error => error);
 };
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
     if (validateForm()) {
         formError.value = '';
-        popupMessage.value = 'Thank you for your message!';
-        showPopup.value = true;
-        form.value = {
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            message: ''
-        };
+
+        try {
+            const response = await fetch(`${backendURL}/contact`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(form.value),
+            });
+
+            if (response.ok) {
+                success.value = "Message sent successfully";
+                setTimeout(() => {
+                    success.value = "";
+                }, 3000);
+            } else {
+                fail.value = 'Failed to send message.';
+                setTimeout(() => {
+                    fail.value = "";
+                }, 3000);
+            }
+            form.value = {
+                firstName: '',
+                lastName: '',
+                email: '',
+                phoneNumber: '',
+                message: ''
+            };
+        } catch (error) {
+            console.error('Error sending message:', error);
+            formError.value = 'An error occurred. Please try again later.';
+        }
     } else {
         formError.value = 'Please fix the errors above.';
     }
