@@ -5,7 +5,7 @@
                 <div class="container-fluid mx-auto px-4 sm:px-6 md:px-7 lg:px-8 xl:px-8">
                     <div class="py-3 md:py-4 flex flex-col items-center justify-between custom:flex-row">
                         <div class="headerLogo flex-shrink-0">
-                            <img src="/name-logo3.png" alt="logo" class="w-48 md:w-48 lg:w-60 xl:w-80">
+                            <img src="/name-logo3.webp" alt="logo" class="w-48 md:w-48 lg:w-60 xl:w-80">
                         </div>
                         <div class="relative flex items-center mt-2 sm:mt-0 custom:flex-row-reverse">
                             <div class="relative group">

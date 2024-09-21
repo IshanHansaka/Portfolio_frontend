@@ -9,7 +9,7 @@
                     class="mt-10 px-6 py-2 border-2 border-black bg-black text-white rounded-md hover:bg-white hover:text-black transition duration-300 ease-in-out">Download
                     Resume</button>
             </div>
-            <img src="../public/ishan-dp.png" alt="Profile Picture" class="w-48 md:w-[25rem] rounded-full mb-10">
+            <img src="../public/ishan-dp.webp" alt="Profile Picture" class="w-48 md:w-[25rem] rounded-full mb-10">
         </div>
     </div>
 </template>
