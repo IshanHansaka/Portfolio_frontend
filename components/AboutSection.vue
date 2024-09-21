@@ -1,7 +1,7 @@
 <template>
-    <div class="min-h-screen px-4 pt-16 md:px-10 md:pt-[50px] pb-[100px] flex items-center justify-center gap-2">
-        <div class="w-full md:w-[85%] hidden lg:block">
-            <img src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/Right_Side.gif?raw=true" alt="coding">
+    <div class="min-h-screen px-4 pt-16 md:px-10 md:pt-[50px] pb-[100px] flex items-center justify-center gap-8">
+        <div class="w-full md:w-[65%] hidden lg:block">
+            <img class="w-96" src="../public/computer-office.webp" alt="coding">
         </div>
         <div class="text-left pr-4">
             <div>
