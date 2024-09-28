@@ -2,7 +2,7 @@
     <div class="max-w-full px-4 mx-auto text-black md:max-w-xl">
         <h1 class="my-8 text-3xl font-bold text-center text-black md:text-5xl">AI Chatbot</h1>
         <div class="max-w-full px-4 mx-auto md:max-w-xl">
-            <div class="bg-white rounded-md shadow h-[70vh] flex flex-col justify-between">
+            <div class="bg-white shadow-2xl border-4 border-gray-100 rounded-lg overflow-hidden  h-[50vh] md:h-[75vh] flex flex-col justify-between">
                 <div class="h-full overflow-auto chat-messages">
                     <div v-for="(message, i) in messages" :key="i" class="flex flex-col p-2 md:p-4">
                         <div v-if="message.role === 'AI'" class="pr-4 md:pr-8 mr-auto">
@@ -36,61 +36,85 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
+const backendURL = "http://localhost:5000";
+
 definePageMeta({
     layout: false
-})
+});
 
 const messages = ref([
     {
         role: 'AI',
-        message: 'Hello! How can I help you?'
+        message: 'Hi! What do you want to know about Ishan. Ask away!',
     }
 ]);
+
 const loading = ref(false);
 const message = ref('');
 
 const scrollToEnd = () => {
     setTimeout(() => {
-        const chatMessages = document.querySelector('.chat-messages > div:last-child');
-        chatMessages?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        const chatMessages = document.querySelector('.chat-messages');
+        chatMessages?.scrollTo({ top: chatMessages.scrollHeight, behavior: 'smooth' });
     }, 100);
 };
 
 const sendPrompt = async () => {
-    if (message.value === '') return;
+    if (message.value.trim() === '') return;
     loading.value = true;
 
     messages.value.push({
         role: 'User',
-        message: message.value
+        message: message.value,
     });
 
     scrollToEnd();
+    const userMessage = message.value;
     message.value = '';
 
-    const res = await fetch(`/api/chat`, {
-        body: JSON.stringify(messages.value.slice(1)),
-        method: 'post',
-        headers: {
-            'Content-Type': 'application/json'
+    try {
+        const res = await fetch(`${backendURL}/chat`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                message: userMessage,
+                model: 'text-davinci-003',
+                prompt: prompt,
+                temperature: 0.1,
+                max_tokens: 512,
+                top_p: 1.0,
+                frequency_penalty: 0,
+                presence_penalty: 0.6,
+                stop: [' User:', ' AI:']
+            }),
+        });
+
+        if (res.ok) {
+            const response = await res.json();
+            messages.value.push({
+                role: 'AI',
+                message: response.message,
+            });
+        } else {
+            const errorMessage = await res.text();
+            messages.value.push({
+                role: 'AI',
+                message: `Error: ${errorMessage || 'An error occurred.'}`,
+            });
         }
-    });
-
-    if (res.status === 200) {
-        const response = await res.json();
+    } catch (error) {
         messages.value.push({
             role: 'AI',
-            message: response?.message
+            message: 'Sorry, unable to reach the server.',
         });
-    } else {
-        messages.value.push({
-            role: 'AI',
-            message: 'Sorry, an error occurred.'
-        });
+    } finally {
+        loading.value = false;
+        scrollToEnd();
     }
-
-    loading.value = false;
-    scrollToEnd();
 };
 </script>
 
