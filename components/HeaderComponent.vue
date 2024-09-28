@@ -9,12 +9,12 @@
                         </div>
                         <div class="relative flex items-center mt-2 sm:mt-0 custom:flex-row-reverse">
                             <div class="relative group">
-                                <button @click="openChatbot" class="relative">
+                                <NuxtLink to="/chat">
                                     <LottieAnimation :animationData="chatIconAnimation"
                                         class="w-10 sm:w-10 md:w-12 lg:w-12 xl:w-16" />
-                                </button>
+                                </NuxtLink>
                                 <div
-                                    class="popup-text absolute right-20 bottom-3 mb-2 px-2 py-1 bg-black text-white text-sm sm:text-base lg:text-lg font-popins rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                    class="popup-text absolute right-20 bottom-2 mb-2 px-2 py-1 bg-black text-white text-sm sm:text-base lg:text-lg font-popins rounded opacity-0 group-hover:opacity-100 transition-opacity">
                                     Curious about me? 🤔 Let's chat!
                                 </div>
                             </div>
@@ -29,11 +29,6 @@
 <script setup>
 import LottieAnimation from '~/components/LottieAnimation.vue';
 import chatIconAnimation from '~/assets/images/chat-icon.json';
-
-const openChatbot = () => {
-    const flaskChatbotUrl = 'http://127.0.0.1:5000';
-    window.location.href = flaskChatbotUrl;
-}
 </script>
 
 <style scoped>
