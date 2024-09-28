@@ -1,17 +1,17 @@
 <template>
-    <div class="max-w-xl mx-auto text-black">
-        <h1 class="my-8 text-5xl font-bold text-center text-black">AI Chatbot</h1>
-        <div class="max-w-xl mx-auto">
-            <div class="bg-white rounded-md shadow h-[60vh] flex flex-col justify-between">
+    <div class="max-w-full px-4 mx-auto text-black md:max-w-xl">
+        <h1 class="my-8 text-3xl font-bold text-center text-black md:text-5xl">AI Chatbot</h1>
+        <div class="max-w-full px-4 mx-auto md:max-w-xl">
+            <div class="bg-white rounded-md shadow h-[70vh] flex flex-col justify-between">
                 <div class="h-full overflow-auto chat-messages">
-                    <div v-for="(message, i) in messages" :key="i" class="flex flex-col p-4">
-                        <div v-if="message.role === 'AI'" class="pr-8 mr-auto">
-                            <div class="p-2 mt-1 text-sm text-gray-700 bg-gray-200 rounded-lg text-smp-2">
+                    <div v-for="(message, i) in messages" :key="i" class="flex flex-col p-2 md:p-4">
+                        <div v-if="message.role === 'AI'" class="pr-4 md:pr-8 mr-auto">
+                            <div class="p-2 mt-1 text-xs text-gray-700 bg-gray-200 rounded-lg md:text-sm">
                                 {{ message.message }}
                             </div>
                         </div>
-                        <div v-else class="pl-8 ml-auto">
-                            <div class="p-2 mt-1 text-sm text-white bg-blue-400 rounded-lg">
+                        <div v-else class="pl-4 md:pl-8 ml-auto">
+                            <div class="p-2 mt-1 text-xs text-white bg-blue-400 rounded-lg md:text-sm">
                                 {{ message.message }}
                             </div>
                         </div>
@@ -23,16 +23,10 @@
                 <form @submit.prevent="sendPrompt">
                     <div class="flex items-center w-full p-4">
                         <input v-model="message" type="text" placeholder="Type here..."
-                            class="w-full p-1 text-sm text-black bg-transparent bg-gray-100 border rounded-md shadow border-white/40 grow" />
+                            class="w-full p-2 text-xs text-black bg-gray-100 border rounded-md shadow md:text-sm md:p-3 border-white/40 grow" />
                         <button :disabled="loading" type="submit"
-                            class="flex items-center justify-center flex-none w-10 h-10 ml-2 bg-green-500 rounded-full">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M22 2L11 13" stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+                            class="flex items-center justify-center flex-none bg-gray-700 ml-2 rounded-full w-8 h-8 md:w-10 md:h-10">
+                            <Icon name="tabler:send" class="text-white w-4 h-4 md:w-6 md:h-6" />
                         </button>
                     </div>
                 </form>
@@ -76,7 +70,10 @@ const sendPrompt = async () => {
 
     const res = await fetch(`/api/chat`, {
         body: JSON.stringify(messages.value.slice(1)),
-        method: 'post'
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        }
     });
 
     if (res.status === 200) {
