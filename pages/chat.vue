@@ -2,7 +2,7 @@
     <div class="max-w-full px-4 mx-auto text-black md:max-w-xl">
         <h1 class="my-8 text-3xl font-bold text-center text-black md:text-5xl">Ishan's AI Assistant</h1>
         <div class="max-w-full px-4 mx-auto md:max-w-xl">
-            <div class="bg-white shadow-2xl border-4 border-gray-100 rounded-lg overflow-hidden  h-[50vh] md:h-[75vh] flex flex-col justify-between">
+            <div class="bg-white shadow-2xl border-4 border-gray-100 rounded-lg overflow-hidden  h-[65vh] md:h-[75vh] flex flex-col justify-between">
                 <div class="h-full overflow-auto chat-messages">
                     <div v-for="(message, i) in messages" :key="i" class="flex flex-col p-2 md:p-4">
                         <div v-if="message.role === 'AI'" class="pr-4 md:pr-8 mr-auto">
@@ -80,7 +80,7 @@ const sendPrompt = async () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ 
+            body: JSON.stringify({
                 message: userMessage,
                 model: 'text-davinci-003',
                 prompt: prompt,
@@ -127,24 +127,48 @@ const sendPrompt = async () => {
     position: relative;
     color: #d3d3d3;
     box-sizing: border-box;
-    animation: animloader 2s linear infinite;
+    animation: animloader 1.1s linear infinite;
 }
 
 @keyframes animloader {
     0% {
-        box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+        box-shadow:
+            14px 0 0 0 rgba(211, 211, 211, 1),
+            38px 0 0 0 rgba(211, 211, 211, 0.5),
+            -14px 0 0 0 rgba(211, 211, 211, 0.5),
+            -38px 0 0 0 rgba(211, 211, 211, 0.5);
     }
 
     25% {
-        box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 2px;
+        box-shadow:
+            14px 0 0 0 rgba(211, 211, 211, 0.5),
+            38px 0 0 5px rgba(211, 211, 211, 1),
+            -14px 0 0 0 rgba(211, 211, 211, 0.5),
+            -38px 0 0 0 rgba(211, 211, 211, 0.5);
     }
 
     50% {
-        box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 2px, -38px 0 0 -2px;
+        box-shadow:
+            14px 0 0 0 rgba(211, 211, 211, 0.5),
+            38px 0 0 0 rgba(211, 211, 211, 0.5),
+            -14px 0 0 5px rgba(211, 211, 211, 1),
+            -38px 0 0 0 rgba(211, 211, 211, 0.5);
     }
 
     75% {
-        box-shadow: 14px 0 0 2px, 38px 0 0 -2px;
+        box-shadow:
+            14px 0 0 0 rgba(211, 211, 211, 0.5),
+            38px 0 0 0 rgba(211, 211, 211, 0.5),
+            -14px 0 0 0 rgba(211, 211, 211, 0.5),
+            -38px 0 0 5px rgba(211, 211, 211, 1);
+    }
+
+    100% {
+        box-shadow:
+            14px 0 0 0 rgba(211, 211, 211, 0.5),
+            38px 0 0 0 rgba(211, 211, 211, 0.5),
+            -14px 0 0 0 rgba(211, 211, 211, 0.5),
+            -38px 0 0 0 rgba(211, 211, 211, 0.5);
     }
 }
 </style>
