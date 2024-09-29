@@ -24,6 +24,8 @@
     "vue3-carousel": "^0.3.3"
   },
   "devDependencies": {
+    "@iconify-json/simple-icons": "^1.2.4",
+    "@iconify-json/uil": "^1.2.0",
     "@iconify/tailwind": "^1.1.3",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@vitejs/plugin-vue": "^5.1.3",

@@ -1,6 +1,6 @@
 <template>
     <div class="max-w-full px-4 mx-auto text-black md:max-w-xl">
-        <h1 class="my-8 text-3xl font-bold text-center text-black md:text-5xl">AI Chatbot</h1>
+        <h1 class="my-8 text-3xl font-bold text-center text-black md:text-5xl">Ishan's AI Assistant</h1>
         <div class="max-w-full px-4 mx-auto md:max-w-xl">
             <div class="bg-white shadow-2xl border-4 border-gray-100 rounded-lg overflow-hidden  h-[50vh] md:h-[75vh] flex flex-col justify-between">
                 <div class="h-full overflow-auto chat-messages">
@@ -38,7 +38,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const backendURL = "http://localhost:5000";
+const backendURL = "https://devlabs-portfolio-backend-06205972995f.herokuapp.com";
 
 definePageMeta({
     layout: false
@@ -47,7 +47,7 @@ definePageMeta({
 const messages = ref([
     {
         role: 'AI',
-        message: 'Hi! What do you want to know about Ishan. Ask away!',
+        message: 'Hello!👋 What would you like to discover about Ishan?',
     }
 ]);
 
