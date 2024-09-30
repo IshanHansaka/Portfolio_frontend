@@ -26,7 +26,7 @@
                             class="w-full p-2 text-xs text-black bg-gray-100 border rounded-md shadow md:text-sm md:p-3 border-white/40 grow" />
                         <button :disabled="loading" type="submit"
                             class="flex items-center justify-center flex-none bg-gray-700 ml-2 rounded-full w-8 h-8 md:w-10 md:h-10">
-                            <Icon name="tabler:send" class="text-white w-4 h-4 md:w-6 md:h-6" />
+                            <Icon name="material-symbols:send" class="text-white w-5 h-5 md:w-7 md:h-7 ml-1" />
                         </button>
                     </div>
                 </form>
