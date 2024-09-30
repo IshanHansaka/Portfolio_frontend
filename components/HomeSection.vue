@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-const backendURL = "http://localhost:5000";
+const backendURL = "https://devlabs-portfolio-backend-06205972995f.herokuapp.com";
 const downloadResume = async () => {
     try {
         const response = await fetch(`${backendURL}/resume`, {
